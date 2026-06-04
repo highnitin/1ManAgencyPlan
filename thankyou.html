@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're In! 🎉 — 1ManAgencyPlan Workshop</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Meta Pixel — Purchase Event -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'REPLACE_WITH_YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+    fbq('track', 'Purchase', { currency: 'INR', value: 99 });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=REPLACE_WITH_YOUR_PIXEL_ID&ev=Purchase&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #F5A623;
+      --gold-light: #FFD07A;
+      --gold-dark:  #C8851A;
+      --bg:         #0d0d0d;
+      --bg-card:    #161616;
+      --bg-alt:     #1a1a1a;
+      --text:       #FFFFFF;
+      --muted:      #9E9E9E;
+      --green:      #22C55E;
+      --border:     rgba(245,166,35,0.2);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    /* ─── CONFETTI CANVAS ─── */
+    #confetti-canvas {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand { font-size: 20px; font-weight: 900; color: var(--gold); }
+    .brand span { color: var(--text); }
+
+    /* ─── HERO ─── */
+    .hero {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.1) 0%, transparent 65%);
+    }
+    .hero-inner { max-width: 680px; }
+
+    .success-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 38px;
+      box-shadow: 0 8px 32px rgba(245,166,35,0.4);
+      animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 50px);
+      font-weight: 900; letter-spacing: -1.5px;
+      margin-bottom: 14px; line-height: 1.15;
+    }
+    .hero h1 .gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .sub {
+      font-size: 18px; color: #ccc; margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero .sub strong { color: var(--gold); }
+
+    /* ─── DETAILS CARD ─── */
+    .details-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 32px;
+      margin-bottom: 28px; text-align: left;
+    }
+    .details-card h3 {
+      font-size: 16px; font-weight: 800; color: var(--gold);
+      margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .detail-row {
+      display: flex; align-items: center; gap: 14px;
+      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 15px;
+    }
+    .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .detail-icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; }
+    .detail-label { color: var(--muted); font-size: 13px; display: block; }
+    .detail-val { font-weight: 600; color: var(--text); }
+
+    /* ─── NEXT STEPS ─── */
+    .steps-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 16px; padding: 28px 32px;
+      margin-bottom: 32px; text-align: left;
+    }
+    .steps-card h3 {
+      font-size: 16px; font-weight: 800; color: var(--green);
+      margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .step {
+      display: flex; gap: 16px; align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .step:last-child { margin-bottom: 0; }
+    .step-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #000; font-size: 14px; font-weight: 900;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .step-content { flex: 1; }
+    .step-title { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .step-desc  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ─── SHARE SECTION ─── */
+    .share-section {
+      background: rgba(245,166,35,0.06);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 16px; padding: 24px 28px;
+      margin-bottom: 32px; text-align: center;
+    }
+    .share-section h4 { font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+    .share-section p { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+    .share-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 50px; border: none; cursor: pointer;
+      font-size: 14px; font-weight: 700; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .share-btn.wa  { background: #25D366; color: #fff; }
+    .share-btn.wa:hover  { background: #1DA851; transform: translateY(-1px); }
+    .share-btn.li  { background: #0077B5; color: #fff; }
+    .share-btn.li:hover  { background: #005D8F; transform: translateY(-1px); }
+
+    /* ─── UPSELL CARD ─── */
+    .upsell-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 16px; padding: 28px 32px;
+      margin-bottom: 32px; text-align: center;
+    }
+    .upsell-badge {
+      display: inline-block;
+      background: var(--gold); color: #000;
+      font-size: 11px; font-weight: 900; letter-spacing: 1.5px;
+      padding: 4px 14px; border-radius: 50px;
+      margin-bottom: 14px; text-transform: uppercase;
+    }
+    .upsell-card h3 { font-size: 22px; font-weight: 900; margin-bottom: 10px; }
+    .upsell-card p { font-size: 15px; color: var(--muted); margin-bottom: 20px; line-height: 1.7; }
+    .upsell-price { font-size: 40px; font-weight: 900; color: var(--gold); margin-bottom: 6px; }
+    .upsell-orig { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-bottom: 20px; }
+    .btn-upsell {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #000; font-size: 16px; font-weight: 800;
+      padding: 15px 40px; border-radius: 50px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-upsell:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,166,35,0.45); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px; text-align: center;
+      font-size: 12px; color: var(--muted);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 600px) {
+      .details-card, .steps-card, .upsell-card, .share-section { padding: 20px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <nav>
+    <div class="brand">1Man<span>AgencyPlan</span></div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+
+      <div class="success-icon">🎉</div>
+
+      <h1>You're In!<br/><span class="gold">See You on June 19th.</span></h1>
+
+      <p class="hero sub">
+        Your seat is confirmed for the <strong>1ManAgencyPlan Live Workshop.</strong><br/>
+        Check your email and WhatsApp — Zoom link coming 24 hours before.
+      </p>
+
+      <!-- Workshop Details -->
+      <div class="details-card">
+        <h3>📋 Your Workshop Details</h3>
+        <div class="detail-row">
+          <span class="detail-icon">🗓️</span>
+          <div><span class="detail-label">Date</span><span class="detail-val">Friday, 19th June 2026</span></div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">⏰</span>
+          <div><span class="detail-label">Time</span><span class="detail-val">12:00 PM – 3:00 PM IST (3 Hours Live)</span></div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">💻</span>
+          <div><span class="detail-label">Platform</span><span class="detail-val">Zoom (Link sent 24 hours before)</span></div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">🗣️</span>
+          <div><span class="detail-label">Language</span><span class="detail-val">Hindi + English</span></div>
+        </div>
+        <div class="detail-row">
+          <span class="detail-icon">🧰</span>
+          <div><span class="detail-label">What to Bring</span><span class="detail-val">Claude subscription ready · Meta Ads Manager access · Your current funnel URL</span></div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="steps-card">
+        <h3>✅ Your Next 3 Steps</h3>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Get Claude Max (₹2,000/month)</div>
+            <div class="step-desc">Sign up at claude.ai/subscribe — choose the Max plan. This is your only tool going forward. You'll need it live during the workshop.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Join the WhatsApp Community</div>
+            <div class="step-desc">Nitin's team will add you to the private 1ManAgencyPlan WhatsApp group within 24 hours. This is where the Zoom link, prep material, and updates will be shared.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Come Prepared — Bring Your Funnel</div>
+            <div class="step-desc">Have your current landing page URL, Meta Ads Manager open, and your best/worst performing ad copy ready. Hour 1 is a live audit — the more you bring, the more you get.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Share Section -->
+      <div class="share-section">
+        <h4>🙌 Know Another Coach Who Needs This?</h4>
+        <p>Share this workshop — if they join, you're both better prepared on Day 1.</p>
+        <div class="share-btns">
+          <a class="share-btn wa"
+            href="https://wa.me/?text=Just%20booked%20my%20seat%20for%20the%201ManAgencyPlan%20Workshop%20with%20Nitin%20Joshi!%20Learn%20how%20to%20fire%20your%20marketing%20agency%20and%20run%20your%20own%20Meta%20ads%20with%20Claude.%20Check%20it%20out%3A%20https%3A%2F%2F1managencyplan.com"
+            target="_blank">
+            📱 Share on WhatsApp
+          </a>
+          <a class="share-btn li"
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2F1managencyplan.com"
+            target="_blank">
+            💼 Share on LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <!-- Upsell — L1 Consultation -->
+      <div class="upsell-card">
+        <span class="upsell-badge">🔥 One-Time Offer — Closes at Workshop End</span>
+        <h3>Want Nitin to Set Up Your Entire<br/>1ManAgencyPlan System — With You?</h3>
+        <p>
+          After the workshop, Nitin takes on a handful of coaches for a <strong>3-day 1-on-1 consultation</strong> to build out their complete performance marketing ecosystem — Meta campaigns, funnel rebuild, Claude workflow, and reporting — all set up live on calls.
+          <br/><br/>
+          This is for coaches who want it done right, fast, and with zero guesswork.
+        </p>
+        <div class="upsell-price">₹10,000</div>
+        <div class="upsell-orig">₹25,000 (Available only to workshop attendees)</div>
+        <a class="btn-upsell" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Nitin%2C%20I%20just%20attended%20the%201ManAgencyPlan%20workshop%20and%20I%20want%20to%20know%20more%20about%20the%20consultation%20program." target="_blank">
+          Yes, I Want the 1-on-1 Setup Call →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 1ManAgencyPlan · Nitin Joshi · Questions? WhatsApp or Email: highnitin@gmail.com
+  </footer>
+
+  <!-- Confetti Script -->
+  <script>
+    (function() {
+      const canvas = document.getElementById('confetti-canvas');
+      const ctx    = canvas.getContext('2d');
+      let W, H, pieces = [];
+
+      const colors = ['#F5A623','#FFD07A','#22C55E','#FFFFFF','#C8851A','#FF6B6B'];
+
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function rand(min, max) { return Math.random() * (max - min) + min; }
+
+      function makePiece() {
+        return {
+          x: rand(0, W), y: rand(-20, -5),
+          w: rand(8,14), h: rand(4,8),
+          color: colors[Math.floor(Math.random()*colors.length)],
+          rot: rand(0, Math.PI*2),
+          vx: rand(-1.5, 1.5), vy: rand(2.5, 5),
+          vr: rand(-0.08, 0.08),
+          alpha: 1,
+        };
+      }
+
+      // Spawn burst
+      for (let i = 0; i < 120; i++) pieces.push(makePiece());
+
+      let frame = 0;
+      function animate() {
+        ctx.clearRect(0,0,W,H);
+        pieces.forEach((p,i) => {
+          p.x   += p.vx;
+          p.y   += p.vy;
+          p.rot += p.vr;
+          if (p.y > H + 20) p.alpha -= 0.05;
+
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, p.alpha);
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          ctx.restore();
+        });
+
+        pieces = pieces.filter(p => p.alpha > 0);
+        frame++;
+
+        if (pieces.length > 0) requestAnimationFrame(animate);
+        else ctx.clearRect(0,0,W,H);
+      }
+      animate();
+    })();
+  </script>
+
+</body>
+</html>

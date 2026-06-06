@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1ManAgencyPlan — Fire Your Agency. Run Your Own Ads. Live Workshop with Nitin Joshi</title>
   <meta name="description" content="India's only performance marketing workshop for established coaches. Replace ₹70,000/month agency costs with a ₹2,000/month Claude subscription. Live 3-hour Zoom workshop." />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Fire Your Agency. Put ₹70,000 Back Into Your Ads." />
   <meta property="og:description" content="The 1ManAgencyPlan Workshop — 3 Hours Live. Audit your funnel. Build a landing page. Launch a Meta campaign. All with Claude." />
   <meta property="og:image" content="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/funnel_builder/landing_pages/content/148920/87af2e76d34728a2b2272c58ff99d43c-87af2e76d34728a2b2272c58ff99d43c-nitin-profile.webp" />
-  <meta property="og:url" content="https://1managencyplan.com/" />
 
   <!-- Meta Pixel -->
   <script>
@@ -19,849 +16,535 @@
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'REPLACE_WITH_YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
+    fbq('init','REPLACE_WITH_YOUR_PIXEL_ID');fbq('track','PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=REPLACE_WITH_YOUR_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- HLS.js for streaming video support -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   <style>
-    /* ═══════════════════════════════════════
-       RESET & BASE
-    ═══════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ═══════════════ RESET & VARS ═══════════════ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --gold:#F5A623;--gold-l:#FFD07A;--gold-d:#C8851A;
+      --bg:#0d0d0d;--card:#161616;--alt:#1a1a1a;--sec:#111111;
+      --white:#fff;--light:#E0E0E0;--muted:#9E9E9E;
+      --red:#FF4444;--green:#22C55E;--border:rgba(245,166,35,.2);
+      --r:12px;--rl:20px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+    .container{max-width:900px;margin:0 auto;padding:0 20px}
+    .gold{color:var(--gold)}
+    .tag{display:inline-block;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:50px}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
 
-    :root {
-      --gold:        #F5A623;
-      --gold-light:  #FFD07A;
-      --gold-dark:   #C8851A;
-      --bg-primary:  #0d0d0d;
-      --bg-card:     #161616;
-      --bg-section:  #111111;
-      --bg-alt:      #1a1a1a;
-      --text-white:  #FFFFFF;
-      --text-light:  #E0E0E0;
-      --text-muted:  #9E9E9E;
-      --red:         #FF4444;
-      --green:       #22C55E;
-      --border:      rgba(245,166,35,0.2);
-      --radius:      12px;
-      --radius-lg:   20px;
-    }
+    /* ═══════════════ BUTTONS ═══════════════ */
+    .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:18px;font-weight:800;padding:18px 44px;border-radius:50px;border:none;cursor:pointer;text-decoration:none;transition:all .25s;box-shadow:0 6px 30px rgba(245,166,35,.4);letter-spacing:.3px;position:relative;overflow:hidden}
+    .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);opacity:0;transition:opacity .2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(245,166,35,.55)}
+    .btn:hover::after{opacity:1}
+    .btn-pulse{animation:btnPulse 2.2s ease-in-out infinite}
+    @keyframes btnPulse{0%,100%{box-shadow:0 6px 30px rgba(245,166,35,.4)}50%{box-shadow:0 6px 50px rgba(245,166,35,.75),0 0 0 8px rgba(245,166,35,.08)}}
 
-    html { scroll-behavior: smooth; }
+    /* ═══════════════ TOP BAR ═══════════════ */
+    #top-bar{background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));color:#000;text-align:center;padding:10px 20px;font-size:13px;font-weight:700;letter-spacing:.4px;animation:topBarShimmer 3s linear infinite;background-size:200% 100%}
+    @keyframes topBarShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-white);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    /* ═══════════════ NAV ═══════════════ */
+    #nav{background:var(--card);border-bottom:1px solid var(--border);padding:14px 20px;position:sticky;top:0;z-index:200}
+    #nav .ni{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .brand{font-size:18px;font-weight:900;color:var(--gold);letter-spacing:-.5px}
+    .brand span{color:var(--white)}
+    .live-pill{display:flex;align-items:center;gap:7px;background:rgba(255,68,68,.1);border:1px solid rgba(255,68,68,.4);border-radius:50px;padding:6px 14px}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .live-pill span{font-size:12px;font-weight:700;color:var(--red);letter-spacing:1px}
 
-    /* ═══════════════════════════════════════
-       UTILITY
-    ═══════════════════════════════════════ */
-    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    /* ═══════════════ HERO ═══════════════ */
+    #hero{background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.09) 0%,transparent 65%),var(--bg);padding:56px 20px 48px;text-align:center}
+    .hero-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+    .hero-meta .tag{font-size:10px}
+    #hero h1{font-size:clamp(30px,5.5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:22px}
+    .grad{background:linear-gradient(135deg,var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    #hero .sub{font-size:clamp(15px,2.2vw,19px);color:var(--light);max-width:680px;margin:0 auto 32px;line-height:1.75;font-weight:400}
+    #hero .sub strong{color:var(--gold);font-weight:700}
+    .badges-row{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:36px}
+    .badge-item{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;font-weight:600;color:var(--light)}
 
-    .gold { color: var(--gold); }
-    .green { color: var(--green); }
-    .red-text { color: var(--red); }
+    /* ── Hero VSL video ── */
+    .hero-vsl{max-width:720px;margin:0 auto 10px;border-radius:var(--rl);overflow:hidden;background:var(--card);border:1px solid var(--border);box-shadow:0 8px 40px rgba(0,0,0,.5)}
+    .hero-vsl video,.hero-vsl iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+    .hero-vsl-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(160deg,#1a1a1a,#0d0d0d);cursor:pointer}
+    .hero-vsl-play{width:72px;height:72px;background:linear-gradient(135deg,var(--gold),var(--gold-d));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;padding-left:5px;box-shadow:0 6px 32px rgba(245,166,35,.5);animation:btnPulse 2.2s infinite}
+    .hero-vsl-label{font-size:13px;color:var(--muted);letter-spacing:.5px}
+    .hero-live-line{font-size:clamp(30px,5.5vw,56px);font-weight:900;letter-spacing:-1.5px;margin:14px 0 22px;line-height:1.1}
 
-    .tag {
-      display: inline-block;
-      background: rgba(245,166,35,0.15);
-      border: 1px solid rgba(245,166,35,0.4);
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-    }
+    /* ── Hero CTA wrap ── */
+    .cta-wrap{display:flex;flex-direction:column;align-items:center;gap:0;margin-bottom:28px}
+    .cta-sub{font-size:13px;color:var(--muted);margin-top:12px}
+    .cta-sub strong{color:var(--gold)}
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-      display: block;
-    }
+    /* ── Below-CTA activity strip ── */
+    .below-cta{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:24px}
 
-    /* ═══════════════════════════════════════
-       BUTTONS
-    ═══════════════════════════════════════ */
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-      color: #000;
-      font-size: 18px;
-      font-weight: 800;
-      padding: 18px 44px;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 30px rgba(245,166,35,0.4);
-      letter-spacing: 0.3px;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 40px rgba(245,166,35,0.55);
-      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-    }
-    .btn-primary:active { transform: translateY(0); }
+    /* Viewer count */
+    .viewer-count{display:flex;align-items:center;gap:8px;background:rgba(255,68,68,.08);border:1px solid rgba(255,68,68,.25);border-radius:50px;padding:8px 18px;font-size:13px;font-weight:600}
+    .viewer-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1s infinite}
 
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--gold);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 13px 32px;
-      border-radius: 50px;
-      border: 2px solid var(--gold);
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .btn-secondary:hover {
-      background: rgba(245,166,35,0.1);
-    }
+    /* Live activity feed */
+    .activity-feed{position:relative;height:38px;overflow:hidden;width:100%;max-width:480px}
+    .activity-item{position:absolute;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--light);background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:50px;padding:8px 20px;opacity:0;animation:feedCycle 28s linear infinite}
+    .activity-item:nth-child(1){animation-delay:0s}
+    .activity-item:nth-child(2){animation-delay:4s}
+    .activity-item:nth-child(3){animation-delay:8s}
+    .activity-item:nth-child(4){animation-delay:12s}
+    .activity-item:nth-child(5){animation-delay:16s}
+    .activity-item:nth-child(6){animation-delay:20s}
+    .activity-item:nth-child(7){animation-delay:24s}
+    @keyframes feedCycle{0%{opacity:0;transform:translateY(12px)}3%{opacity:1;transform:translateY(0)}11%{opacity:1;transform:translateY(0)}14%{opacity:0;transform:translateY(-12px)}100%{opacity:0}}
+    .act-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse .9s infinite}
 
-    /* ═══════════════════════════════════════
-       TOP ANNOUNCEMENT BAR
-    ═══════════════════════════════════════ */
-    #top-bar {
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
-      color: #000;
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-    }
-    #top-bar a { color: #000; text-decoration: underline; }
+    /* Payment proof strip */
+    .payment-strip{width:100%;max-width:520px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;overflow:hidden}
+    .payment-strip-title{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+    .payment-pings{display:flex;flex-direction:column;gap:0}
+    .ping{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;opacity:0;animation:pingIn .4s ease forwards}
+    .ping:last-child{border-bottom:none}
+    .ping:nth-child(1){animation-delay:.2s}
+    .ping:nth-child(2){animation-delay:.6s}
+    .ping:nth-child(3){animation-delay:1s}
+    .ping:nth-child(4){animation-delay:1.4s}
+    @keyframes pingIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+    .ping-name{display:flex;align-items:center;gap:8px;color:var(--light)}
+    .ping-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .ping-amount{color:var(--green);font-weight:700;font-size:13px}
+    .ping-time{color:var(--muted);font-size:11px}
 
-    /* ═══════════════════════════════════════
-       LIVE BADGE NAV
-    ═══════════════════════════════════════ */
-    #nav {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 20px;
-    }
-    #nav .nav-inner {
-      max-width: 900px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .brand {
-      font-size: 18px; font-weight: 900;
-      color: var(--gold); letter-spacing: -0.5px;
-    }
-    .brand span { color: var(--text-white); }
-    .live-badge {
-      display: flex; align-items: center; gap: 7px;
-      background: rgba(255,68,68,0.1);
-      border: 1px solid rgba(255,68,68,0.4);
-      border-radius: 50px; padding: 6px 14px;
-    }
-    .live-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--red);
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform: scale(1); }
-      50%      { opacity:0.5; transform: scale(1.3); }
-    }
-    .live-badge span { font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: 1px; }
+    /* Guarantee strip */
+    .guarantee-strip{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.25);border-radius:var(--r);padding:14px 22px;display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--light);max-width:520px}
 
-    /* ═══════════════════════════════════════
-       HERO SECTION
-    ═══════════════════════════════════════ */
-    #hero {
-      background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.08) 0%, transparent 65%), var(--bg-primary);
-      padding: 60px 20px 50px;
-      text-align: center;
-    }
+    /* Trust logos */
+    .trust-row{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:10px}
+    .trust-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);font-weight:600}
+    .trust-icon{font-size:16px}
 
-    .hero-meta {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
-      margin-bottom: 28px;
+    /* ── Seat bar animation (pb-box style) ── */
+    .seat-blocks-wrap{width:100%;max-width:520px;text-align:center}
+    .seat-label{font-size:11px;color:var(--muted);margin-bottom:10px;letter-spacing:.5px;font-weight:600}
+    .seat-bar{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:12px}
+    .pb-box{
+      width:28px;height:24px;
+      background:var(--alt);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:4px;
+      transition:background .15s ease,transform .1s ease;
     }
-    .hero-meta .tag { font-size: 10px; }
+    .pb-box.done{
+      background:linear-gradient(135deg,var(--gold-l),var(--gold-d));
+      border-color:var(--gold);
+      transform:scaleY(1.08);
+      box-shadow:0 2px 8px rgba(245,166,35,.35);
+    }
+    .seat-warning{font-size:13px;font-weight:700;color:var(--red);animation:urgencyBlink 2s infinite;letter-spacing:.3px;display:flex;align-items:center;justify-content:center;gap:6px}
 
-    #hero h1 {
-      font-size: clamp(32px, 5.5vw, 58px);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
-    }
-    #hero h1 .line-gold {
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    /* ── Image slider ── */
+    .img-slider{position:relative;width:100%;border-radius:var(--rl);overflow:hidden;border:2px solid var(--border);height:380px}
+    .img-slider-track{display:flex;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+    .img-slide{min-width:100%;position:relative;height:100%}
+    .img-slide img{width:100%;height:100%;display:block;object-fit:cover}
+    .img-slide-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,var(--alt),var(--card));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:13px}
+    .img-slide-placeholder span{font-size:36px}
+    .slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.6);border:1px solid var(--border);color:var(--gold);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:10;transition:all .2s;backdrop-filter:blur(4px)}
+    .slider-btn:hover{background:rgba(245,166,35,.2)}
+    .slider-btn.prev{left:10px}.slider-btn.next{right:10px}
+    .slider-dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+    .slider-dot{width:7px;height:7px;border-radius:50%;background:var(--alt);border:1px solid var(--border);cursor:pointer;transition:all .2s}
+    .slider-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2)}
 
-    #hero .sub {
-      font-size: clamp(16px, 2.2vw, 20px);
-      color: var(--text-light);
-      max-width: 700px; margin: 0 auto 32px;
-      line-height: 1.7;
-      font-weight: 400;
-    }
-    #hero .sub strong { color: var(--gold); font-weight: 700; }
+    /* ═══════════════ COUNTDOWN ═══════════════ */
+    #urgency{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 20px}
+    #urgency .inner{max-width:700px;margin:0 auto;text-align:center}
+    .urgency-title{font-size:14px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;animation:urgencyBlink 2s ease-in-out infinite}
+    @keyframes urgencyBlink{0%,100%{opacity:1}50%{opacity:.7}}
+    .countdown-wrap{display:flex;justify-content:center;gap:12px;margin-bottom:22px}
+    .cu{background:var(--alt);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;min-width:72px;text-align:center}
+    .cn{font-size:40px;font-weight:900;color:var(--gold);line-height:1;display:block;font-variant-numeric:tabular-nums;transition:all .15s}
+    .cl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
+    .seats-wrap{margin-top:8px}
+    .seats-text{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .seats-text strong{color:var(--white)}
+    .progress-bar{background:var(--alt);border-radius:50px;height:10px;max-width:400px;margin:0 auto;overflow:hidden;position:relative}
+    .progress-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--gold-d),var(--gold));width:0%;transition:width 1.5s cubic-bezier(.22,.68,0,1.2)}
+    .progress-fill.animated{width:76%}
+    .seats-count{margin-top:8px;font-size:12px;color:var(--red);font-weight:700;letter-spacing:.5px}
 
-    .badges-row {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
-      margin-bottom: 36px;
-    }
-    .badge-item {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px; padding: 10px 18px;
-      font-size: 13px; font-weight: 600; color: var(--text-light);
-    }
-    .badge-item .icon { font-size: 16px; }
+    /* ═══════════════ AI RACE URGENCY SECTION ═══════════════ */
+    #ai-race{padding:64px 20px;background:linear-gradient(160deg,rgba(255,68,68,.06) 0%,rgba(245,166,35,.06) 100%),var(--sec);border-top:1px solid rgba(255,68,68,.15);border-bottom:1px solid rgba(245,166,35,.15)}
+    #ai-race .container{text-align:center}
+    .race-tag{display:inline-block;background:rgba(255,68,68,.15);border:1px solid rgba(255,68,68,.4);color:var(--red);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:20px}
+    #ai-race h2{font-size:clamp(24px,4vw,40px);font-weight:900;margin-bottom:18px;letter-spacing:-1px;line-height:1.2}
+    .race-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:32px auto 36px}
+    .race-stat{background:var(--card);border:1px solid rgba(255,68,68,.2);border-radius:var(--r);padding:20px 16px;text-align:center}
+    .race-num{font-size:clamp(28px,4vw,42px);font-weight:900;color:var(--red);display:block;line-height:1}
+    .race-label{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+    .race-copy{max-width:620px;margin:0 auto;font-size:16px;color:var(--light);line-height:1.8}
+    .race-copy strong{color:var(--gold)}
+    .race-copy em{color:var(--red);font-style:normal;font-weight:700}
 
-    .hero-cta-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 14px;
-      margin-bottom: 20px;
-    }
-    .cta-subtext {
-      font-size: 13px; color: var(--text-muted);
-    }
-    .cta-subtext strong { color: var(--gold); }
+    /* ═══════════════ PAIN ═══════════════ */
+    #pain{padding:72px 20px;background:var(--sec)}
+    #pain .container{text-align:center}
+    #pain h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .intro-text{font-size:17px;color:var(--muted);margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+    .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 40px;text-align:left}
+    .pain-card{background:var(--card);border:1px solid rgba(255,68,68,.2);border-left:3px solid var(--red);border-radius:var(--r);padding:18px 20px;font-size:14px;line-height:1.6;color:var(--light);transition:transform .2s,border-color .2s}
+    .pain-card:hover{transform:translateY(-2px);border-color:rgba(255,68,68,.5)}
+    .pain-icon{font-size:18px;margin-bottom:8px;display:block}
+    .pain-card strong{color:var(--white)}
+    .pain-total{background:rgba(255,68,68,.08);border:1px solid rgba(255,68,68,.3);border-radius:var(--rl);padding:22px 32px;max-width:560px;margin:0 auto;font-size:16px;line-height:1.7;color:var(--light)}
+    .big-num{font-size:clamp(28px,4vw,38px);font-weight:900;color:var(--red);display:block;margin:10px 0}
 
-    /* ═══════════════════════════════════════
-       GUARANTEE STRIP
-    ═══════════════════════════════════════ */
-    .guarantee-strip {
-      background: rgba(34,197,94,0.08);
-      border: 1px solid rgba(34,197,94,0.25);
-      border-radius: var(--radius);
-      padding: 14px 22px;
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 13px; color: var(--text-light);
-      max-width: 540px; margin: 0 auto;
-    }
-    .guarantee-strip .icon { font-size: 22px; flex-shrink: 0; }
+    /* ═══════════════ SHIFT ═══════════════ */
+    #shift{padding:72px 20px;background:radial-gradient(ellipse at 50% 100%,rgba(245,166,35,.06) 0%,transparent 70%),var(--bg)}
+    #shift .container{text-align:center}
+    #shift h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .shift-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 44px;text-align:left}
+    .shift-card{background:var(--card);border:1px solid rgba(34,197,94,.2);border-left:3px solid var(--green);border-radius:var(--r);padding:18px 20px;font-size:14px;line-height:1.6;color:var(--light);transition:transform .2s}
+    .shift-card:hover{transform:translateY(-2px)}
+    .shift-icon{font-size:22px;margin-bottom:8px;display:block}
+    .shift-card strong{color:var(--white)}
+    .shift-total{background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:var(--rl);padding:28px 36px;max-width:540px;margin:0 auto 40px;text-align:center}
+    .savings{font-size:clamp(32px,5vw,48px);font-weight:900;color:var(--gold);display:block;margin:8px 0}
 
-    /* ═══════════════════════════════════════
-       COUNTDOWN + SEATS
-    ═══════════════════════════════════════ */
-    #urgency {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 28px 20px;
-    }
-    #urgency .inner {
-      max-width: 700px; margin: 0 auto; text-align: center;
-    }
-    #urgency .urgency-title {
-      font-size: 14px; font-weight: 700; color: var(--red);
-      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px;
-    }
-    .countdown-wrap {
-      display: flex; justify-content: center; gap: 12px;
-      margin-bottom: 22px;
-    }
-    .countdown-unit {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 18px; min-width: 70px; text-align: center;
-    }
-    .countdown-num {
-      font-size: 38px; font-weight: 900; color: var(--gold);
-      line-height: 1; display: block; font-variant-numeric: tabular-nums;
-    }
-    .countdown-label {
-      font-size: 10px; color: var(--text-muted);
-      text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block;
-    }
+    /* ═══════════════ AGENDA ═══════════════ */
+    #agenda{padding:72px 20px;background:var(--sec)}
+    #agenda .container{text-align:center}
+    #agenda h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .agenda-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:0 auto 44px;text-align:left}
+    .agenda-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:28px 24px;position:relative;overflow:hidden;transition:transform .2s}
+    .agenda-card:hover{transform:translateY(-3px)}
+    .agenda-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
+    .agenda-hour{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .agenda-title{font-size:18px;font-weight:800;margin-bottom:12px;line-height:1.3}
+    .agenda-desc{font-size:13px;color:var(--muted);line-height:1.7}
+    .agenda-emoji{font-size:32px;margin-bottom:14px;display:block}
 
-    .seats-wrap { margin-top: 8px; }
-    .seats-text { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
-    .seats-text strong { color: var(--text-white); }
-    .progress-bar {
-      background: var(--bg-alt);
-      border-radius: 50px; height: 8px;
-      max-width: 400px; margin: 0 auto;
-      overflow: hidden;
+    /* ═══════════════ TESTIMONIALS ═══════════════ */
+    #testimonials{padding:72px 20px;background:var(--bg)}
+    #testimonials .container{text-align:center}
+    #testimonials h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:860px;margin:44px auto 0;text-align:left}
+    .testi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:transform .25s,box-shadow .25s}
+    .testi-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(245,166,35,.12)}
+    /* ── Testimonial video cards ── */
+    .testi-video{position:relative;width:100%;padding-top:56.25%;background:#000;overflow:hidden}
+    .testi-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+    .testi-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+    /* Custom HLS poster overlay — shown until play */
+    .vid-poster{
+      position:absolute;inset:0;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:12px;
+      background:linear-gradient(160deg,#1c1c1c,#0d0d0d);
+      cursor:pointer;transition:opacity .3s;z-index:5;
     }
-    .progress-fill {
-      height: 100%; border-radius: 50px;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
-      width: 76%;
-      transition: width 0.5s ease;
+    .vid-poster.hidden{opacity:0;pointer-events:none}
+    .vid-play{
+      width:58px;height:58px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-d));
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:20px;box-shadow:0 4px 24px rgba(245,166,35,.45);
+      transition:transform .2s;padding-left:4px;
     }
-    .seats-count {
-      margin-top: 8px; font-size: 12px;
-      color: var(--red); font-weight: 700; letter-spacing: 0.5px;
+    .vid-poster:hover .vid-play{transform:scale(1.12)}
+    .vid-name-overlay{font-size:12px;color:var(--muted);letter-spacing:.5px;text-align:center;padding:0 12px}
+    .vid-initials{
+      width:52px;height:52px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold-d));
+      color:#000;font-size:18px;font-weight:900;
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:4px;
     }
+    .testi-body{padding:18px 20px}
+    .testi-name{font-size:15px;font-weight:800;margin-bottom:2px;color:var(--white)}
+    .testi-role{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.3px;margin-bottom:10px;text-transform:uppercase}
+    .testi-result{font-size:13px;color:var(--muted);line-height:1.6}
+    .testi-result strong{color:var(--gold)}
+    .testi-stars{color:var(--gold);font-size:13px;margin-bottom:6px}
 
-    /* ═══════════════════════════════════════
-       PAIN SECTION
-    ═══════════════════════════════════════ */
-    #pain {
-      padding: 72px 20px;
-      background: var(--bg-section);
-    }
-    #pain .container { text-align: center; }
-    #pain h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-    #pain .intro-text {
-      font-size: 17px; color: var(--text-muted);
-      margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto;
-    }
+    /* ═══════════════ WHO ═══════════════ */
+    #who{padding:72px 20px;background:var(--sec)}
+    #who .container{text-align:center}
+    #who h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin:0 auto}
+    .who-col{text-align:left}
+    .who-col-title{font-size:15px;font-weight:800;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .who-col-title.yes{color:var(--green)}.who-col-title.no{color:var(--red)}
+    .who-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px;font-size:14px;color:var(--light);line-height:1.5}
+    .who-icon{font-size:16px;flex-shrink:0;margin-top:1px}
 
-    .pain-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px; max-width: 760px; margin: 0 auto 40px; text-align: left;
-    }
-    .pain-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255,68,68,0.2);
-      border-left: 3px solid var(--red);
-      border-radius: var(--radius); padding: 18px 20px;
-      font-size: 14px; line-height: 1.6; color: var(--text-light);
-    }
-    .pain-card .pain-icon { font-size: 18px; margin-bottom: 8px; display: block; }
-    .pain-card strong { color: var(--text-white); }
+    /* ═══════════════ COMPARE ═══════════════ */
+    #compare{padding:72px 20px;background:var(--bg)}
+    #compare .container{text-align:center}
+    #compare h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .compare-table{width:100%;max-width:820px;margin:0 auto;border-collapse:collapse;border-radius:var(--rl);overflow:hidden}
+    .compare-table thead tr th{padding:18px 24px;font-size:14px;font-weight:800;text-align:center;background:var(--alt)}
+    .compare-table thead tr th:first-child{text-align:left;background:var(--card)}
+    .compare-table thead tr th.old{color:var(--red);border-bottom:2px solid rgba(255,68,68,.3)}
+    .compare-table thead tr th.new{color:var(--gold);border-bottom:2px solid rgba(245,166,35,.4)}
+    .compare-table tbody tr{border-bottom:1px solid rgba(255,255,255,.05)}
+    .compare-table tbody tr:last-child{border-bottom:none}
+    .compare-table tbody tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+    .compare-table td{padding:16px 24px;font-size:14px;vertical-align:middle;color:var(--light)}
+    .compare-table td:first-child{font-weight:600;color:var(--muted);font-size:13px;text-align:left;background:var(--card)}
+    .compare-table td:nth-child(2){text-align:center;color:var(--red)}
+    .compare-table td:nth-child(3){text-align:center;color:var(--green);font-weight:600}
+    .compare-table tfoot td{padding:20px 24px;font-weight:800;font-size:15px;background:var(--alt)}
+    .compare-table tfoot td:nth-child(2){color:var(--red);text-align:center}
+    .compare-table tfoot td:nth-child(3){color:var(--gold);text-align:center}
 
-    .pain-total {
-      background: rgba(255,68,68,0.08);
-      border: 1px solid rgba(255,68,68,0.3);
-      border-radius: var(--radius-lg);
-      padding: 22px 32px;
-      max-width: 560px; margin: 0 auto;
-      font-size: 16px; line-height: 1.7; color: var(--text-light);
-    }
-    .pain-total .big-num {
-      font-size: clamp(28px, 4vw, 38px);
-      font-weight: 900; color: var(--red);
-      display: block; margin: 10px 0;
-    }
+    /* ═══════════════ ABOUT ═══════════════ */
+    #about{padding:72px 20px;background:var(--sec)}
+    #about .about-inner{max-width:820px;margin:0 auto;display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center}
+    .about-img-wrap{position:relative}
+    .about-img-wrap img{width:100%;border-radius:var(--rl);border:2px solid var(--border);display:block}
+    .about-img-ring{position:absolute;inset:-6px;border-radius:calc(var(--rl) + 6px);border:1px solid rgba(245,166,35,.3);pointer-events:none}
+    .about-name{font-size:clamp(24px,3.5vw,34px);font-weight:900;margin-bottom:6px;letter-spacing:-.8px}
+    .about-role{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:20px}
+    .about-bio{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:22px}
+    .about-stats{display:flex;gap:28px}
+    .stat-num{font-size:28px;font-weight:900;color:var(--gold);display:block}
+    .stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+    .about-quote{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--r);padding:16px 20px;font-size:14px;color:var(--muted);font-style:italic;line-height:1.7;margin-top:22px}
 
-    /* ═══════════════════════════════════════
-       SHIFT SECTION
-    ═══════════════════════════════════════ */
-    #shift {
-      padding: 72px 20px;
-      background: radial-gradient(ellipse at 50% 100%, rgba(245,166,35,0.06) 0%, transparent 70%), var(--bg-primary);
-    }
-    #shift .container { text-align: center; }
-    #shift h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-    #shift .intro-text {
-      font-size: 17px; color: var(--text-muted);
-      margin-bottom: 44px; max-width: 560px; margin-left: auto; margin-right: auto;
-    }
+    /* ═══════════════ LEADERS MARQUEE ═══════════════ */
+    #leaders{padding:56px 0;background:var(--bg);overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    #leaders .leaders-head{text-align:center;padding:0 20px;margin-bottom:36px}
+    #leaders .leaders-head p{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    #leaders .leaders-head h3{font-size:clamp(18px,3vw,26px);font-weight:900;color:var(--white)}
+    .marquee-wrap{overflow:hidden;width:100%;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+    .marquee-track{display:flex;gap:20px;width:max-content;animation:marqueeScroll 36s linear infinite}
+    .marquee-track:hover{animation-play-state:paused}
+    @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .marquee-card{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;width:130px;cursor:default}
+    .marquee-img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--border);transition:border-color .2s,transform .2s;background:var(--alt)}
+    .marquee-card:hover .marquee-img{border-color:var(--gold);transform:scale(1.07)}
+    .marquee-name{font-size:12px;font-weight:700;color:var(--white);text-align:center;line-height:1.3}
+    .marquee-role{font-size:10px;color:var(--muted);text-align:center;line-height:1.4;max-width:120px}
 
-    .shift-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px; max-width: 760px; margin: 0 auto 44px; text-align: left;
-    }
-    .shift-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(34,197,94,0.2);
-      border-left: 3px solid var(--green);
-      border-radius: var(--radius); padding: 18px 20px;
-      font-size: 14px; line-height: 1.6; color: var(--text-light);
-    }
-    .shift-card .shift-icon { font-size: 22px; margin-bottom: 8px; display: block; }
-    .shift-card strong { color: var(--text-white); }
+    /* ═══════════════ PRICING ═══════════════ */
+    #pricing{padding:72px 20px;background:radial-gradient(ellipse at 50% 50%,rgba(245,166,35,.07) 0%,transparent 70%),var(--bg)}
+    #pricing .container{text-align:center}
+    #pricing h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:14px;letter-spacing:-1px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:820px;margin:0 auto 32px}
+    .price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:28px 22px;position:relative;text-align:center;transition:transform .2s}
+    .price-card:hover{transform:translateY(-3px)}
+    .price-card.featured{border-color:var(--gold);background:linear-gradient(160deg,rgba(245,166,35,.07),var(--card))}
+    .price-card.featured::before{content:'⭐ MOST POPULAR';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:10px;font-weight:800;letter-spacing:1.5px;padding:4px 14px;border-radius:50px;white-space:nowrap}
+    .price-tier{font-size:12px;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+    .price-amount{font-size:48px;font-weight:900;color:var(--gold);line-height:1}
+    .price-amount span{font-size:18px;color:var(--muted)}
+    .price-orig{font-size:13px;color:var(--muted);text-decoration:line-through;margin:6px 0}
+    .price-seats{font-size:12px;color:var(--muted);margin-bottom:18px}
+    .price-seats strong{color:var(--red)}
+    .price-btn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:15px;font-weight:800;padding:14px;border-radius:50px;border:none;cursor:pointer;transition:all .2s}
+    .price-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,166,35,.4)}
 
-    .shift-total {
-      background: rgba(245,166,35,0.06);
-      border: 1px solid rgba(245,166,35,0.25);
-      border-radius: var(--radius-lg);
-      padding: 28px 36px;
-      max-width: 540px; margin: 0 auto 40px;
-      text-align: center;
-    }
-    .shift-total .savings {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 900; color: var(--gold);
-      display: block; margin: 8px 0;
-    }
-    .shift-total p { font-size: 15px; color: var(--text-muted); }
+    .addon-card{background:var(--card);border:1px dashed rgba(245,166,35,.4);border-radius:var(--rl);padding:22px 28px;max-width:820px;margin:0 auto 44px;display:flex;align-items:center;gap:20px;text-align:left}
+    .addon-checkbox{width:26px;height:26px;flex-shrink:0;border:2px solid var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:rgba(245,166,35,.1);font-size:16px}
+    .addon-content{flex:1}
+    .addon-title{font-size:16px;font-weight:800;margin-bottom:4px}
+    .addon-desc{font-size:13px;color:var(--muted)}
+    .addon-price .new{font-size:24px;font-weight:900;color:var(--gold)}
+    .addon-price .old{font-size:13px;color:var(--muted);text-decoration:line-through}
 
-    /* ═══════════════════════════════════════
-       AGENDA SECTION
-    ═══════════════════════════════════════ */
-    #agenda {
-      padding: 72px 20px;
-      background: var(--bg-section);
-    }
-    #agenda .container { text-align: center; }
-    #agenda h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px; letter-spacing: -1px;
-    }
-    #agenda .intro-text {
-      font-size: 17px; color: var(--text-muted); margin-bottom: 48px;
-    }
+    .guarantee-card{background:var(--card);border:1px solid rgba(34,197,94,.25);border-radius:var(--rl);padding:28px 32px;max-width:580px;margin:0 auto;display:flex;align-items:flex-start;gap:18px;text-align:left}
+    .guarantee-card h4{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--green)}
+    .guarantee-card p{font-size:14px;color:var(--muted);line-height:1.7}
 
-    .agenda-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; max-width: 860px; margin: 0 auto 44px; text-align: left;
-    }
-    .agenda-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px 24px;
-      position: relative; overflow: hidden;
-    }
-    .agenda-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
-    }
-    .agenda-hour {
-      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
-    }
-    .agenda-title {
-      font-size: 18px; font-weight: 800; margin-bottom: 12px; line-height: 1.3;
-    }
-    .agenda-desc {
-      font-size: 13px; color: var(--text-muted); line-height: 1.7;
-    }
-    .agenda-emoji { font-size: 32px; margin-bottom: 14px; display: block; }
+    /* ═══════════════ FAQ ═══════════════ */
+    #faq{padding:72px 20px;background:var(--sec)}
+    #faq .container{text-align:center}
+    #faq h2{font-size:clamp(24px,3.5vw,38px);font-weight:900;margin-bottom:44px;letter-spacing:-1px}
+    .faq-list{max-width:680px;margin:0 auto;text-align:left}
+    .faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+    .faq-q{padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;font-size:15px;font-weight:600;user-select:none}
+    .faq-q:hover{background:rgba(255,255,255,.03)}
+    .faq-arrow{flex-shrink:0;transition:transform .3s;color:var(--gold);font-size:18px}
+    .faq-item.open .faq-arrow{transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s;font-size:14px;color:var(--muted);line-height:1.8}
+    .faq-item.open .faq-a{max-height:300px;padding:0 22px 18px}
 
-    /* ═══════════════════════════════════════
-       WHO IS THIS FOR
-    ═══════════════════════════════════════ */
-    #who {
-      padding: 72px 20px;
-      background: var(--bg-primary);
+    /* ═══════════════ FINAL CTA ═══════════════ */
+    #final-cta{padding:72px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.12) 0%,transparent 70%),var(--bg);text-align:center}
+    #final-cta h2{font-size:clamp(26px,4.5vw,46px);font-weight:900;margin-bottom:14px;letter-spacing:-1.5px}
+    #final-cta .sub{font-size:17px;color:var(--muted);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
+
+    /* ═══════════════ FOOTER ═══════════════ */
+    #footer{background:var(--card);border-top:1px solid var(--border);padding:32px 20px;text-align:center}
+    #footer .brand{display:block;margin-bottom:12px;font-size:20px}
+    #footer .foot-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+    #footer .foot-links a{color:var(--muted);font-size:13px;text-decoration:none}
+    #footer .foot-links a:hover{color:var(--gold)}
+    #footer .copy{font-size:12px;color:var(--muted)}
+
+    /* ═══════════════ STICKY CTA BAR ═══════════════ */
+    #sticky-bar{
+      position:fixed;bottom:0;left:0;right:0;z-index:900;
+      background:rgba(13,13,13,.96);
+      border-top:1px solid var(--border);
+      backdrop-filter:blur(12px);
+      padding:12px 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      transform:translateY(100%);
+      transition:transform .4s cubic-bezier(.22,.68,0,1.2);
     }
-    #who .container { text-align: center; }
-    #who h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px; letter-spacing: -1px;
-    }
-    #who .intro-text {
-      font-size: 17px; color: var(--text-muted); margin-bottom: 44px;
+    #sticky-bar.visible{transform:translateY(0)}
+    .sticky-left{display:flex;flex-direction:column}
+    .sticky-urgency{font-size:11px;color:var(--red);font-weight:700;letter-spacing:1px;text-transform:uppercase;animation:urgencyBlink 2s infinite}
+    .sticky-price{font-size:13px;color:var(--muted)}
+    .sticky-price strong{color:var(--gold);font-size:18px}
+    .sticky-right{display:flex;align-items:center;gap:14px;flex-shrink:0}
+    .sticky-guarantee{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+    .sticky-btn{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:15px;font-weight:800;padding:13px 28px;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;animation:btnPulse 2.2s infinite;transition:transform .2s}
+    .sticky-btn:hover{transform:translateY(-1px)}
+    @media(max-width:640px){
+      #sticky-bar{flex-direction:column;gap:10px;padding:14px 16px}
+      .sticky-left{align-items:center;text-align:center}
+      .sticky-right{flex-direction:column;gap:8px;width:100%}
+      .sticky-btn{width:100%;text-align:center}
+      .sticky-guarantee{justify-content:center}
     }
 
-    .who-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 24px; max-width: 760px; margin: 0 auto;
-    }
-    .who-col { text-align: left; }
-    .who-col-title {
-      font-size: 15px; font-weight: 800; margin-bottom: 16px;
-      padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .who-col-title.yes { color: var(--green); }
-    .who-col-title.no  { color: var(--red); }
+    /* ═══════════════ IN 30 MINS RESULTS ═══════════════ */
+    #results-preview{padding:72px 20px;background:var(--sec);text-align:center}
+    #results-preview h2{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+    #results-preview .sub{font-size:16px;color:var(--muted);max-width:560px;margin:0 auto 36px;line-height:1.7}
+    .results-video-wrap{max-width:720px;margin:0 auto 36px;background:var(--card);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;position:relative}
+    .results-video-wrap video,.results-video-wrap iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+    .results-video-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(160deg,#1a1a1a,#0d0d0d);cursor:pointer}
+    .results-play{width:72px;height:72px;background:linear-gradient(135deg,var(--gold),var(--gold-d));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;padding-left:5px;box-shadow:0 6px 30px rgba(245,166,35,.5);animation:btnPulse 2.2s infinite}
+    .results-video-label{font-size:13px;color:var(--muted);letter-spacing:.5px}
+    .results-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:620px;margin:0 auto}
+    .result-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+    .result-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
+    .result-num{font-size:clamp(28px,4vw,38px);font-weight:900;color:var(--gold);display:block;line-height:1}
+    .result-label{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+    @media(max-width:600px){.results-stats{grid-template-columns:1fr}}
 
-    .who-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 13px; font-size: 14px; color: var(--text-light); line-height: 1.5;
-    }
-    .who-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    /* ═══════════════ CODE ANIMATION (AGENDA TERMINAL) ═══════════════ */
+    .terminal-wrap{max-width:820px;margin:44px auto 0;background:#0d1117;border:1px solid rgba(245,166,35,.2);border-radius:var(--rl);overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.6)}
+    .terminal-bar{background:#161b22;padding:12px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+    .t-dot{width:12px;height:12px;border-radius:50%}
+    .t-dot.r{background:#ff5f57}.t-dot.y{background:#febc2e}.t-dot.g{background:#28c840}
+    .terminal-title{font-size:12px;color:var(--muted);margin-left:8px;font-family:ui-monospace,monospace}
+    .terminal-body{padding:22px 24px;font-family:ui-monospace,'Fira Code',monospace;font-size:13px;line-height:1.9;min-height:260px}
+    .t-line{display:flex;align-items:flex-start;gap:10px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+    .t-line.show{opacity:1;transform:none}
+    .t-prompt{color:#58a6ff;flex-shrink:0}
+    .t-cmd{color:#e6edf3}
+    .t-comment{color:#8b949e}
+    .t-success{color:#3fb950}
+    .t-warn{color:var(--gold)}
+    .t-cursor{display:inline-block;width:8px;height:14px;background:var(--gold);animation:cursorBlink .9s infinite;vertical-align:middle;margin-left:2px;border-radius:1px}
+    @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
-    /* ═══════════════════════════════════════
-       COMPARISON TABLE
-    ═══════════════════════════════════════ */
-    #compare {
-      padding: 72px 20px;
-      background: var(--bg-section);
-    }
-    #compare .container { text-align: center; }
-    #compare h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px; letter-spacing: -1px;
-    }
-    #compare .intro-text {
-      font-size: 17px; color: var(--text-muted); margin-bottom: 44px;
-    }
+    /* ═══════════════ FLYWHEEL ═══════════════ */
+    #flywheel{padding:72px 20px;background:var(--bg)}
+    #flywheel .container{text-align:center}
+    #flywheel h2{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+    #flywheel .sub{font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 36px;line-height:1.7}
+    .loop-section{margin:0 auto;padding:36px 24px 28px;background:var(--card);border:1px solid var(--border);border-radius:var(--rl);position:relative;overflow:hidden;max-width:600px}
+    .loop-eyebrow{text-align:center;font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px}
+    .loop-title{text-align:center;font-size:18px;font-weight:700;color:#fff;margin-bottom:24px;letter-spacing:-.3px}
+    .loop-wrap{max-width:420px;margin:0 auto;position:relative}
+    .loop-svg{width:100%;height:auto;display:block}
+    .loop-orbit{fill:none;stroke:rgba(245,166,35,.2);stroke-width:1.2;stroke-dasharray:4 7;animation:rotateOrbit 60s linear infinite;transform-origin:300px 300px}
+    @keyframes rotateOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .loop-node-bg{fill:var(--card);stroke:var(--gold);stroke-width:1.5;transition:all .2s;cursor:pointer}
+    .loop-node-bg:hover{fill:var(--gold)}
+    .loop-node-num{font-family:ui-monospace,monospace;font-size:11px;font-weight:600;fill:var(--gold);pointer-events:none;letter-spacing:.04em}
+    .loop-node-g:hover .loop-node-num{fill:#000}
+    .loop-node-label{font-size:11.5px;fill:var(--light);font-weight:600;pointer-events:none}
+    .loop-particle{fill:var(--gold);filter:drop-shadow(0 0 6px rgba(245,166,35,.7))}
+    .loop-center-mark{fill:var(--gold)}
+    .loop-center-label{font-size:13px;font-weight:700;fill:#fff;text-anchor:middle}
+    .loop-center-sub{font-family:ui-monospace,monospace;font-size:9px;fill:rgba(255,255,255,.5);text-anchor:middle;letter-spacing:.1em;text-transform:uppercase}
+    .loop-caption{text-align:center;font-size:12px;color:var(--muted);margin-top:16px;font-style:italic}
 
-    .compare-table {
-      width: 100%; max-width: 820px; margin: 0 auto;
-      border-collapse: collapse; border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .compare-table thead tr th {
-      padding: 18px 24px; font-size: 14px; font-weight: 800;
-      text-align: center; background: var(--bg-alt);
-    }
-    .compare-table thead tr th:first-child { text-align: left; background: var(--bg-card); }
-    .compare-table thead tr th.old { color: var(--red); border-bottom: 2px solid rgba(255,68,68,0.3); }
-    .compare-table thead tr th.new { color: var(--gold); border-bottom: 2px solid rgba(245,166,35,0.4); }
+    /* ═══════════════ BONUS SECTION ═══════════════ */
+    #bonuses{padding:72px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.08) 0%,transparent 65%),var(--sec)}
+    #bonuses .container{text-align:center}
+    #bonuses h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+    .bonus-total{display:inline-block;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.35);color:var(--gold);font-size:14px;font-weight:800;padding:8px 22px;border-radius:50px;margin-bottom:44px}
+    .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto 44px;text-align:left}
+    .bonus-card{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:24px 22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .bonus-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(245,166,35,.1)}
+    .bonus-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold-d),var(--gold))}
+    .bonus-icon{font-size:32px;margin-bottom:14px;display:block}
+    .bonus-title{font-size:16px;font-weight:800;margin-bottom:8px;line-height:1.3}
+    .bonus-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+    .bonus-value{display:flex;align-items:center;gap:8px}
+    .bonus-value .val{font-size:15px;font-weight:900;color:var(--gold)}
+    .bonus-value .free{font-size:11px;font-weight:800;background:var(--green);color:#000;padding:2px 8px;border-radius:50px;letter-spacing:.5px}
+    @media(max-width:768px){.bonus-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.bonus-grid{grid-template-columns:1fr}}
+    @media(max-width:768px){.bonus-cta-box{display:none}}
 
-    .compare-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .compare-table tbody tr:last-child { border-bottom: none; }
-    .compare-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    /* ═══════════════ TOAST NOTIFICATIONS ═══════════════ */
+    #toast-container{position:fixed;bottom:80px;left:20px;z-index:1000;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+    .toast{background:var(--card);border:1px solid rgba(245,166,35,.3);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--light);box-shadow:0 4px 20px rgba(0,0,0,.4);max-width:280px;transform:translateX(-320px);transition:transform .4s cubic-bezier(.22,.68,0,1.2),opacity .3s;opacity:0;pointer-events:none}
+    .toast.show{transform:translateX(0);opacity:1}
+    .toast-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .toast-text{flex:1}
+    .toast-name{font-weight:700;color:var(--white);margin-bottom:2px}
+    .toast-action{font-size:11px;color:var(--muted)}
+    @media(max-width:640px){#toast-container{bottom:100px;left:10px}}
 
-    .compare-table td {
-      padding: 16px 24px; font-size: 14px; vertical-align: middle;
-      color: var(--text-light);
-    }
-    .compare-table td:first-child {
-      font-weight: 600; color: var(--text-muted);
-      font-size: 13px; text-align: left; background: var(--bg-card);
-    }
-    .compare-table td:nth-child(2) { text-align: center; color: var(--red); }
-    .compare-table td:nth-child(3) {
-      text-align: center; color: var(--green); font-weight: 600;
-    }
-    .compare-table tfoot td {
-      padding: 20px 24px; font-weight: 800; font-size: 15px;
-      background: var(--bg-alt);
-    }
-    .compare-table tfoot td:nth-child(2) { color: var(--red); text-align: center; }
-    .compare-table tfoot td:nth-child(3) { color: var(--gold); text-align: center; }
+    /* ═══════════════ MODAL ═══════════════ */
+    #modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
+    #modal-overlay.active{display:flex}
+    #modal{background:var(--card);border:1px solid var(--border);border-radius:var(--rl);padding:36px 32px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative}
+    .modal-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;line-height:1}
+    .modal-close:hover{color:var(--white)}
+    .modal-title{font-size:22px;font-weight:900;margin-bottom:6px}
+    .modal-sub{font-size:14px;color:var(--muted);margin-bottom:28px}
+    .modal-sub strong{color:var(--gold)}
+    .form-group{margin-bottom:18px}
+    .form-label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:var(--light)}
+    .form-label .req{color:var(--gold)}
+    .form-input,.form-textarea{width:100%;background:var(--alt);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:13px 16px;font-size:15px;color:var(--white);font-family:'Inter',sans-serif;transition:border-color .2s;outline:none}
+    .form-input:focus,.form-textarea:focus{border-color:var(--gold)}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--muted)}
+    .form-textarea{resize:vertical;min-height:80px}
+    .form-addon{background:rgba(245,166,35,.06);border:1px dashed rgba(245,166,35,.4);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:22px;cursor:pointer}
+    .form-addon input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;accent-color:var(--gold);cursor:pointer;margin-top:2px}
+    .form-addon-text .title{font-size:14px;font-weight:700;margin-bottom:2px}
+    .form-addon-text .desc{font-size:12px;color:var(--muted)}
+    .form-submit{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:17px;font-weight:800;padding:16px;border-radius:50px;border:none;cursor:pointer;transition:all .2s;animation:btnPulse 2.2s infinite}
+    .form-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,166,35,.45);animation:none}
+    .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;animation:none}
+    .form-privacy{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
+    .form-security-badges{display:flex;justify-content:center;gap:16px;margin-top:10px;flex-wrap:wrap}
+    .sec-badge{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
 
-    /* ═══════════════════════════════════════
-       ABOUT SECTION
-    ═══════════════════════════════════════ */
-    #about {
-      padding: 72px 20px;
-      background: var(--bg-primary);
-    }
-    #about .about-inner {
-      max-width: 820px; margin: 0 auto;
-      display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center;
-    }
-    .about-img-wrap {
-      position: relative;
-    }
-    .about-img-wrap img {
-      width: 100%; border-radius: var(--radius-lg);
-      border: 2px solid var(--border);
-      display: block;
-    }
-    .about-img-ring {
-      position: absolute; inset: -6px; border-radius: calc(var(--radius-lg) + 6px);
-      border: 1px solid rgba(245,166,35,0.3); pointer-events: none;
-    }
-    .about-tag { margin-bottom: 16px; }
-    .about-name {
-      font-size: clamp(24px, 3.5vw, 34px);
-      font-weight: 900; margin-bottom: 6px; letter-spacing: -0.8px;
-    }
-    .about-role {
-      font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 20px;
-    }
-    .about-bio {
-      font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 22px;
-    }
-    .about-stats {
-      display: flex; gap: 28px;
-    }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-size: 28px; font-weight: 900; color: var(--gold); display: block;
-    }
-    .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-
-    .about-quote {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--gold);
-      border-radius: var(--radius); padding: 16px 20px;
-      font-size: 14px; color: var(--text-muted);
-      font-style: italic; line-height: 1.7; margin-top: 22px;
-    }
-
-    /* ═══════════════════════════════════════
-       PRICING SECTION
-    ═══════════════════════════════════════ */
-    #pricing {
-      padding: 72px 20px;
-      background: radial-gradient(ellipse at 50% 50%, rgba(245,166,35,0.07) 0%, transparent 70%), var(--bg-section);
-    }
-    #pricing .container { text-align: center; }
-    #pricing h2 {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 900; margin-bottom: 14px; letter-spacing: -1px;
-    }
-    #pricing .intro-text {
-      font-size: 17px; color: var(--text-muted); margin-bottom: 44px;
-    }
-
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px; max-width: 820px; margin: 0 auto 32px;
-    }
-    .price-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px 22px;
-      position: relative; text-align: center;
-    }
-    .price-card.featured {
-      border-color: var(--gold);
-      background: linear-gradient(160deg, rgba(245,166,35,0.07), var(--bg-card));
-    }
-    .price-card.featured::before {
-      content: '⭐ MOST POPULAR';
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: var(--gold); color: #000;
-      font-size: 10px; font-weight: 800; letter-spacing: 1.5px;
-      padding: 4px 14px; border-radius: 50px; white-space: nowrap;
-    }
-    .price-tier { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-    .price-amount {
-      font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1;
-    }
-    .price-amount span { font-size: 18px; color: var(--text-muted); }
-    .price-orig { font-size: 13px; color: var(--text-muted); text-decoration: line-through; margin: 6px 0; }
-    .price-seats { font-size: 12px; color: var(--text-muted); margin-bottom: 18px; }
-    .price-seats strong { color: var(--red); }
-    .price-btn {
-      display: block; width: 100%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000; font-size: 15px; font-weight: 800;
-      padding: 14px; border-radius: 50px; border: none; cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .price-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,166,35,0.4); }
-
-    /* Add-on bump card */
-    .addon-card {
-      background: var(--bg-card);
-      border: 1px dashed rgba(245,166,35,0.4);
-      border-radius: var(--radius-lg); padding: 22px 28px;
-      max-width: 820px; margin: 0 auto 44px;
-      display: flex; align-items: center; gap: 20px;
-      text-align: left;
-    }
-    .addon-checkbox {
-      width: 26px; height: 26px; flex-shrink: 0;
-      border: 2px solid var(--gold); border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; background: rgba(245,166,35,0.1);
-      font-size: 16px;
-    }
-    .addon-content { flex: 1; }
-    .addon-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
-    .addon-desc { font-size: 13px; color: var(--text-muted); }
-    .addon-price { text-align: center; }
-    .addon-price .new { font-size: 24px; font-weight: 900; color: var(--gold); }
-    .addon-price .old { font-size: 13px; color: var(--text-muted); text-decoration: line-through; }
-
-    /* Guarantee card */
-    .guarantee-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(34,197,94,0.25);
-      border-radius: var(--radius-lg); padding: 28px 32px;
-      max-width: 580px; margin: 0 auto;
-      display: flex; align-items: flex-start; gap: 18px; text-align: left;
-    }
-    .guarantee-icon { font-size: 44px; flex-shrink: 0; }
-    .guarantee-card h4 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--green); }
-    .guarantee-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
-
-    /* ═══════════════════════════════════════
-       FAQ
-    ═══════════════════════════════════════ */
-    #faq {
-      padding: 72px 20px;
-      background: var(--bg-primary);
-    }
-    #faq .container { text-align: center; }
-    #faq h2 {
-      font-size: clamp(24px, 3.5vw, 38px);
-      font-weight: 900; margin-bottom: 44px; letter-spacing: -1px;
-    }
-
-    .faq-list { max-width: 680px; margin: 0 auto; text-align: left; }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius); margin-bottom: 10px;
-      overflow: hidden;
-    }
-    .faq-q {
-      padding: 18px 22px;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      cursor: pointer; font-size: 15px; font-weight: 600;
-      user-select: none;
-    }
-    .faq-q:hover { background: rgba(255,255,255,0.03); }
-    .faq-arrow {
-      flex-shrink: 0; transition: transform 0.3s ease;
-      color: var(--gold); font-size: 18px;
-    }
-    .faq-item.open .faq-arrow { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.2s;
-      font-size: 14px; color: var(--text-muted); line-height: 1.8;
-    }
-    .faq-item.open .faq-a { max-height: 300px; padding: 0 22px 18px; }
-
-    /* ═══════════════════════════════════════
-       FINAL CTA STRIP
-    ═══════════════════════════════════════ */
-    #final-cta {
-      padding: 72px 20px;
-      background: radial-gradient(ellipse at 50% 0%, rgba(245,166,35,0.12) 0%, transparent 70%), var(--bg-section);
-      text-align: center;
-    }
-    #final-cta h2 {
-      font-size: clamp(26px, 4.5vw, 46px);
-      font-weight: 900; margin-bottom: 14px; letter-spacing: -1.5px;
-    }
-    #final-cta .sub {
-      font-size: 17px; color: var(--text-muted); margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto;
-    }
-
-    /* ═══════════════════════════════════════
-       FOOTER
-    ═══════════════════════════════════════ */
-    #footer {
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      padding: 32px 20px;
-      text-align: center;
-    }
-    #footer .brand { display: block; margin-bottom: 12px; font-size: 20px; }
-    #footer .foot-links {
-      display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-    #footer .foot-links a { color: var(--text-muted); font-size: 13px; text-decoration: none; }
-    #footer .foot-links a:hover { color: var(--gold); }
-    #footer .copy { font-size: 12px; color: var(--text-muted); }
-
-    /* ═══════════════════════════════════════
-       MODAL — REGISTRATION FORM
-    ═══════════════════════════════════════ */
-    #modal-overlay {
-      display: none;
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(0,0,0,0.85);
-      align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    #modal-overlay.active { display: flex; }
-
-    #modal {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 36px 32px;
-      width: 100%; max-width: 520px;
-      max-height: 90vh; overflow-y: auto;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute; top: 16px; right: 20px;
-      background: none; border: none; color: var(--text-muted);
-      font-size: 24px; cursor: pointer; line-height: 1;
-    }
-    .modal-close:hover { color: var(--text-white); }
-
-    .modal-title { font-size: 22px; font-weight: 900; margin-bottom: 6px; }
-    .modal-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
-    .modal-sub strong { color: var(--gold); }
-
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 7px; color: var(--text-light); }
-    .form-label .req { color: var(--gold); }
-    .form-input, .form-textarea, .form-select {
-      width: 100%; background: var(--bg-alt);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px; padding: 13px 16px;
-      font-size: 15px; color: var(--text-white);
-      font-family: 'Inter', sans-serif;
-      transition: border-color 0.2s;
-      outline: none;
-    }
-    .form-input:focus, .form-textarea:focus {
-      border-color: var(--gold);
-    }
-    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
-    .form-textarea { resize: vertical; min-height: 90px; }
-
-    .form-addon {
-      background: rgba(245,166,35,0.06);
-      border: 1px dashed rgba(245,166,35,0.4);
-      border-radius: 10px; padding: 14px 16px;
-      display: flex; align-items: flex-start; gap: 12px;
-      margin-bottom: 22px; cursor: pointer;
-    }
-    .form-addon input[type="checkbox"] {
-      width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--gold); cursor: pointer; margin-top: 2px;
-    }
-    .form-addon-text .title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-    .form-addon-text .desc { font-size: 12px; color: var(--text-muted); }
-
-    .form-submit {
-      width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000; font-size: 17px; font-weight: 800;
-      padding: 16px; border-radius: 50px; border: none; cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .form-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(245,166,35,0.45); }
-    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-    .form-privacy { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; }
-
-    /* ═══════════════════════════════════════
-       STICKY CTA BAR (mobile)
-    ═══════════════════════════════════════ */
-    #sticky-cta {
-      display: none;
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 900;
-      background: var(--bg-card);
-      border-top: 1px solid var(--border);
-      padding: 12px 20px;
-      align-items: center; justify-content: space-between; gap: 12px;
-    }
-    .sticky-price { font-size: 13px; color: var(--text-muted); }
-    .sticky-price strong { color: var(--gold); font-size: 18px; }
-    #sticky-cta .btn-primary { font-size: 14px; padding: 12px 24px; }
-
-    @media (max-width: 600px) { #sticky-cta { display: flex; } }
-
-    /* ═══════════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════════ */
-    @media (max-width: 768px) {
-      .pain-grid, .shift-grid { grid-template-columns: 1fr; }
-      .agenda-grid { grid-template-columns: 1fr; }
-      .who-grid { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      #about .about-inner { grid-template-columns: 1fr; }
-      .about-img-wrap { max-width: 220px; margin: 0 auto; }
-      .about-stats { justify-content: center; }
-      .addon-card { flex-direction: column; }
-      .compare-table { font-size: 12px; }
-      .compare-table td, .compare-table th { padding: 12px 10px; }
-      .countdown-unit { min-width: 58px; padding: 10px 12px; }
-      .countdown-num { font-size: 28px; }
-      #modal { padding: 28px 20px; }
+    /* ═══════════════ RESPONSIVE ═══════════════ */
+    @media(max-width:768px){
+      .pain-grid,.shift-grid,.who-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+      .agenda-grid{grid-template-columns:1fr}
+      #about .about-inner{grid-template-columns:1fr}
+      .about-img-wrap{max-width:200px;margin:0 auto}
+      .about-stats{justify-content:center}
+      .addon-card{flex-direction:column}
+      .compare-table{font-size:12px}
+      .compare-table td,.compare-table th{padding:12px 10px}
+      .countdown-wrap{gap:8px}
+      .cn{font-size:30px}
+      .cu{min-width:60px;padding:12px 10px}
+      .race-stats{grid-template-columns:1fr}
+      #modal{padding:28px 18px}
     }
   </style>
 </head>
@@ -869,24 +552,20 @@
 
   <!-- ═══ TOP BAR ═══ -->
   <div id="top-bar">
-    🔴 LIVE WORKSHOP — Friday, 19th June 2026 &nbsp;|&nbsp; 12:00 PM – 3:00 PM IST &nbsp;|&nbsp; Only 50 Early Bird Seats at ₹99
+    🔴 LIVE WORKSHOP — Friday, 19th June 2026 &nbsp;·&nbsp; 12:00 PM – 3:00 PM IST &nbsp;·&nbsp; ⚡ Only 12 Early Bird Seats Left at ₹99
   </div>
 
-  <!-- ═══ NAV ═══ -->
+  <!-- ═══ STICKY NAV ═══ -->
   <nav id="nav">
-    <div class="nav-inner">
+    <div class="ni">
       <div class="brand">1Man<span>AgencyPlan</span></div>
-      <div class="live-badge">
-        <div class="live-dot"></div>
-        <span>LIVE WORKSHOP</span>
-      </div>
+      <div class="live-pill"><div class="live-dot"></div><span>LIVE WORKSHOP</span></div>
     </div>
   </nav>
 
   <!-- ═══ HERO ═══ -->
   <section id="hero">
     <div class="container">
-
       <div class="hero-meta">
         <span class="tag">🗓️ 19th June 2026</span>
         <span class="tag">⏰ 12 PM – 3 PM IST</span>
@@ -894,12 +573,22 @@
         <span class="tag">🇮🇳 Hindi + English</span>
       </div>
 
-      <h1>
+      <h1 style="margin-bottom:20px">
         Fire Your Agency.<br/>
-        <span class="line-gold">Put ₹70,000 Back Into Your Ads.</span><br/>
-        Run Your Own Meta Campaigns —<br/>
-        Live, In 3 Hours.
+        <span class="grad">Put ₹70,000 Back Into Your Ads.</span><br/>
+        Run Your Own Meta Campaigns —
       </h1>
+
+      <!-- ── Hero VSL — add your video URL here ── -->
+      <div class="hero-vsl">
+        <div class="hero-vsl-placeholder" id="hero-vsl-poster" onclick="playHeroVSL()">
+          <div class="hero-vsl-play">▶</div>
+          <div class="hero-vsl-label">Watch — How coaches are running their own Meta ads with Claude</div>
+        </div>
+        <video id="hero-vsl-vid" controls playsinline preload="none" style="display:none;width:100%;aspect-ratio:16/9"></video>
+      </div>
+
+      <div class="hero-live-line"><span class="grad">Live,</span> In 3 Hours.</div>
 
       <p class="sub">
         The <strong>1ManAgencyPlan Workshop</strong> — India's Only Performance Marketing Workshop
@@ -908,78 +597,286 @@
       </p>
 
       <div class="badges-row">
-        <div class="badge-item"><span class="icon">🚫</span> NOT For Beginners — Advanced Implementation Only</div>
-        <div class="badge-item"><span class="icon">🚀</span> Launch a Live Campaign Inside the Workshop</div>
-        <div class="badge-item"><span class="icon">💰</span> 110% Money-Back Guarantee</div>
+        <div class="badge-item">🚫 NOT For Beginners — Advanced Implementation Only</div>
+        <div class="badge-item">🚀 Launch a Live Campaign Inside the Workshop</div>
+        <div class="badge-item">💰 110% Money-Back Guarantee</div>
       </div>
 
-      <div class="hero-cta-wrap">
-        <button class="btn-primary" onclick="openModal('99')">
+      <!-- PRIMARY CTA -->
+      <div class="cta-wrap">
+        <button class="btn btn-pulse" onclick="openModal('99')">
           Secure My Seat → Only ₹99
         </button>
-        <p class="cta-subtext">⚡ Early Bird Price — <strong>First 50 seats only.</strong> Seats 51–150 will be ₹299.</p>
+        <p class="cta-sub">⚡ Early Bird Price — <strong>First 50 seats only.</strong> Seats 51–150 will be ₹299.</p>
       </div>
 
-      <div class="guarantee-strip">
-        <span class="icon">🛡️</span>
-        <span>If you don't get full clarity on running your own Meta ads using Claude — full ₹99 refund + ₹25 extra. Zero questions asked.</span>
+      <!-- ── SEAT BAR ANIMATION ── -->
+      <div class="seat-blocks-wrap" style="margin:20px auto 0">
+        <div class="seat-label">🪑 SEATS FILLING UP — 38 of 50 taken</div>
+        <div class="seat-bar">
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+        </div>
+        <p class="seat-warning">⚠️ Hurry! Seats For This Workshop Are Low</p>
       </div>
 
+      <!-- ── BELOW CTA — URGENCY ELEMENTS ── -->
+      <div class="below-cta">
+
+        <!-- Viewer count -->
+        <div class="viewer-count">
+          <div class="viewer-dot"></div>
+          <span id="viewer-num">147</span>&nbsp;coaches are viewing this page right now
+        </div>
+
+        <!-- Live activity feed -->
+        <div class="activity-feed">
+          <div class="activity-item"><div class="act-dot"></div>🔥 Priya S. from Delhi just secured her seat · 2 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Karan M. from Mumbai just registered · 5 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Anjali R. from Bangalore just secured her seat · 8 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Rohit V. from Pune just registered · 11 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Meera K. from Hyderabad just secured her seat · 14 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Vikas S. from Chennai just registered · 17 min ago</div>
+          <div class="activity-item"><div class="act-dot"></div>🔥 Sneha P. from Ahmedabad just secured her seat · 21 min ago</div>
+        </div>
+
+        <!-- Payment proof strip -->
+        <div class="payment-strip">
+          <div class="payment-strip-title">
+            <span>💳</span> Recent registrations via Razorpay
+            <span style="margin-left:auto;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:var(--green);font-size:10px;padding:2px 8px;border-radius:50px;">● LIVE</span>
+          </div>
+          <div class="payment-pings">
+            <div class="ping">
+              <div class="ping-name"><div class="ping-avatar">PK</div><span>Priya K. · Delhi</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><span class="ping-amount">₹99 ✓</span><span class="ping-time">2m ago</span></div>
+            </div>
+            <div class="ping">
+              <div class="ping-name"><div class="ping-avatar">RM</div><span>Rohit M. · Mumbai <span style="font-size:10px;color:var(--gold);background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:1px 5px;margin-left:4px">📹 +Recording</span></span></div>
+              <div style="display:flex;align-items:center;gap:10px"><span class="ping-amount">₹199 ✓</span><span class="ping-time">6m ago</span></div>
+            </div>
+            <div class="ping">
+              <div class="ping-name"><div class="ping-avatar">AS</div><span>Anjali S. · Bangalore</span></div>
+              <div style="display:flex;align-items:center;gap:10px"><span class="ping-amount">₹99 ✓</span><span class="ping-time">9m ago</span></div>
+            </div>
+            <div class="ping">
+              <div class="ping-name"><div class="ping-avatar">VR</div><span>Vikas R. · Pune <span style="font-size:10px;color:var(--gold);background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.3);border-radius:4px;padding:1px 5px;margin-left:4px">📹 +Recording</span></span></div>
+              <div style="display:flex;align-items:center;gap:10px"><span class="ping-amount">₹199 ✓</span><span class="ping-time">13m ago</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guarantee strip -->
+        <div class="guarantee-strip">
+          <span style="font-size:22px;flex-shrink:0">🛡️</span>
+          <span>If you don't get full clarity on running your own Meta ads using Claude — full ₹99 refund + ₹25 extra. Zero questions asked.</span>
+        </div>
+
+        <!-- Trust logos -->
+        <div class="trust-row">
+          <div class="trust-item"><span class="trust-icon">🔒</span> Secured by Razorpay</div>
+          <div class="trust-item"><span class="trust-icon">✅</span> SSL Encrypted</div>
+          <div class="trust-item"><span class="trust-icon">👥</span> 100+ Coaches Helped</div>
+          <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 / 5 Rating</div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ═══ COUNTDOWN + SEATS ═══ -->
+  <!-- ═══ LEADERS MARQUEE (TOP — DUPLICATE) ═══ -->
+  <section id="leaders-top" style="padding:48px 0;background:var(--sec);overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div style="text-align:center;padding:0 20px;margin-bottom:28px">
+      <p style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Coaches &amp; industry leaders who trust the process</p>
+      <h3 style="font-size:clamp(16px,3vw,24px);font-weight:900;color:var(--white)">Nitin Has Worked With &amp; Learned From India's Best</h3>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track" style="animation-direction:reverse">
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/1b3cb0d06ba5f8ba3a9b5b624c1d0eef?size=1200" alt="Harry Ranveer" loading="lazy"/><div class="marquee-name">Harry Ranveer</div><div class="marquee-role">Co-founder, Visual Media Pro</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/316d9719e163dde0b2869fd86a1b6953?size=1200" alt="Rohan Dhawan" loading="lazy"/><div class="marquee-name">Rohan Dhawan</div><div class="marquee-role">Digital Marketing Expert</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/275e73e17ce3f05bd75bcc313de15689?size=1200" alt="Team Digital Deepak" loading="lazy"/><div class="marquee-name">Team Digital Deepak</div><div class="marquee-role">Digital Deepak Community</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/6bb383a99cb642bf68eae2c21e7ba2e1?size=1200" alt="Sridev Ramesh" loading="lazy"/><div class="marquee-name">Sridev Ramesh</div><div class="marquee-role">Co-founder &amp; CEO, 100xEngineers</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/2480e4940692e396147961f8b6e508ca?size=1200" alt="Siddhant Goswami" loading="lazy"/><div class="marquee-name">Siddhant Goswami</div><div class="marquee-role">Co-founder &amp; CTO, 100xEngineers</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/db756b592cf32c32c09349ee2e46bcba?size=1200" alt="Avi Arya" loading="lazy"/><div class="marquee-name">Avi Arya</div><div class="marquee-role">Founder, Internet Moguls</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/9f575185855ebdf8f375d7a6dd102d80?size=1200" alt="Saurabh Bhatnagar" loading="lazy"/><div class="marquee-name">Saurabh Bhatnagar</div><div class="marquee-role">Co-founder, FlexiFunnels</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/e91bfd0c89a863411f881c9295c45a0f?size=1200" alt="Swastik Nandkumar" loading="lazy"/><div class="marquee-name">Swastik Nandkumar</div><div class="marquee-role">Peak Performance Coach</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/cb928c917da861160efa09941143da4f?size=1200" alt="Jayant Padhi" loading="lazy"/><div class="marquee-name">Jayant Padhi</div><div class="marquee-role">Digital Marketing Expert</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/a27e4cfe2def142d52f268a0d86f55a7?size=1200" alt="Digital Deepak" loading="lazy"/><div class="marquee-name">Digital Deepak</div><div class="marquee-role">India's #1 Digital Marketer</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/6c07b120cbdfc5a541c248460cc370c7?size=1200" alt="Faheem Ahmad" loading="lazy"/><div class="marquee-name">Faheem Ahmad</div><div class="marquee-role">Digital Marketing Coach</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/b2cf2d30b3e0638f29578d66fa6fc478?size=1200" alt="Rahul Bhatnagar" loading="lazy"/><div class="marquee-name">Rahul Bhatnagar</div><div class="marquee-role">Coach &amp; Motivational Speaker</div></div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/1b3cb0d06ba5f8ba3a9b5b624c1d0eef?size=1200" alt="Harry Ranveer" loading="lazy"/><div class="marquee-name">Harry Ranveer</div><div class="marquee-role">Co-founder, Visual Media Pro</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/316d9719e163dde0b2869fd86a1b6953?size=1200" alt="Rohan Dhawan" loading="lazy"/><div class="marquee-name">Rohan Dhawan</div><div class="marquee-role">Digital Marketing Expert</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/275e73e17ce3f05bd75bcc313de15689?size=1200" alt="Team Digital Deepak" loading="lazy"/><div class="marquee-name">Team Digital Deepak</div><div class="marquee-role">Digital Deepak Community</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/6bb383a99cb642bf68eae2c21e7ba2e1?size=1200" alt="Sridev Ramesh" loading="lazy"/><div class="marquee-name">Sridev Ramesh</div><div class="marquee-role">Co-founder &amp; CEO, 100xEngineers</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/2480e4940692e396147961f8b6e508ca?size=1200" alt="Siddhant Goswami" loading="lazy"/><div class="marquee-name">Siddhant Goswami</div><div class="marquee-role">Co-founder &amp; CTO, 100xEngineers</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/db756b592cf32c32c09349ee2e46bcba?size=1200" alt="Avi Arya" loading="lazy"/><div class="marquee-name">Avi Arya</div><div class="marquee-role">Founder, Internet Moguls</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/9f575185855ebdf8f375d7a6dd102d80?size=1200" alt="Saurabh Bhatnagar" loading="lazy"/><div class="marquee-name">Saurabh Bhatnagar</div><div class="marquee-role">Co-founder, FlexiFunnels</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/e91bfd0c89a863411f881c9295c45a0f?size=1200" alt="Swastik Nandkumar" loading="lazy"/><div class="marquee-name">Swastik Nandkumar</div><div class="marquee-role">Peak Performance Coach</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/cb928c917da861160efa09941143da4f?size=1200" alt="Jayant Padhi" loading="lazy"/><div class="marquee-name">Jayant Padhi</div><div class="marquee-role">Digital Marketing Expert</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/a27e4cfe2def142d52f268a0d86f55a7?size=1200" alt="Digital Deepak" loading="lazy"/><div class="marquee-name">Digital Deepak</div><div class="marquee-role">India's #1 Digital Marketer</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/6c07b120cbdfc5a541c248460cc370c7?size=1200" alt="Faheem Ahmad" loading="lazy"/><div class="marquee-name">Faheem Ahmad</div><div class="marquee-role">Digital Marketing Coach</div></div>
+        <div class="marquee-card"><img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/b2cf2d30b3e0638f29578d66fa6fc478?size=1200" alt="Rahul Bhatnagar" loading="lazy"/><div class="marquee-name">Rahul Bhatnagar</div><div class="marquee-role">Coach &amp; Motivational Speaker</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FLYWHEEL ═══ -->
+  <section id="flywheel">
+    <div class="container">
+      <span class="section-label">The System</span>
+      <h2>The Performance <span class="grad">Growth Flywheel</span></h2>
+      <p class="sub">Seven stages. One loop. Always turning. This is the exact system you'll implement inside the workshop.</p>
+      <div class="loop-section">
+        <div class="loop-eyebrow">The Performance Growth Flywheel</div>
+        <div class="loop-title">Seven stages. One loop. Always turning.</div>
+        <div class="loop-wrap">
+          <svg viewBox="0 0 600 600" class="loop-svg" id="loop-svg" role="img"
+            aria-label="Circular flywheel of seven stages: Research, Audit, Gaps, Opportunities, Execution, Evaluation, Reporting">
+            <circle cx="300" cy="300" r="240" class="loop-orbit" />
+            <path id="loop-path"
+              d="M 300,60 A 240,240 0 0,1 540,300 A 240,240 0 0,1 300,540 A 240,240 0 0,1 60,300 A 240,240 0 0,1 300,60"
+              fill="none" />
+            <g class="loop-center">
+              <rect x="278" y="263" width="32" height="32" rx="3" class="loop-center-mark" />
+              <rect x="310" y="295" width="20" height="20" rx="2" class="loop-center-mark" />
+              <text x="300" y="350" class="loop-center-label">1ManAgencyPlan</text>
+              <text x="300" y="368" class="loop-center-sub">7 stages · 1 system</text>
+            </g>
+            <g id="loop-nodes"></g>
+            <circle r="7" class="loop-particle">
+              <animateMotion dur="18s" repeatCount="indefinite" rotate="auto">
+                <mpath href="#loop-path" />
+              </animateMotion>
+            </circle>
+            <circle r="4" class="loop-particle" opacity="0.5">
+              <animateMotion dur="18s" repeatCount="indefinite" begin="-9s" rotate="auto">
+                <mpath href="#loop-path" />
+              </animateMotion>
+            </circle>
+          </svg>
+        </div>
+        <div class="loop-caption">Your complete performance marketing OS — built live inside the workshop ↓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COUNTDOWN ═══ -->
   <div id="urgency">
     <div class="inner">
-      <div class="urgency-title">⚠️ Hurry! Workshop Fills Fast — Registration Closes Soon</div>
+      <div class="urgency-title">⚠️ Hurry! Workshop Fills Fast — Early Bird Closes Soon</div>
       <div class="countdown-wrap">
-        <div class="countdown-unit"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">Days</span></div>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">Hours</span></div>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">Mins</span></div>
-        <div class="countdown-unit"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Secs</span></div>
+        <div class="cu"><span class="cn" id="cd-days">00</span><span class="cl">Days</span></div>
+        <div class="cu"><span class="cn" id="cd-hours">00</span><span class="cl">Hours</span></div>
+        <div class="cu"><span class="cn" id="cd-mins">00</span><span class="cl">Mins</span></div>
+        <div class="cu"><span class="cn" id="cd-secs">00</span><span class="cl">Secs</span></div>
       </div>
       <div class="seats-wrap">
-        <p class="seats-text"><strong>38 seats</strong> already taken out of 50 early bird seats</p>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-        <p class="seats-count">⚠️ Only 12 Early Bird Seats Left at ₹99</p>
+        <p class="seats-text"><strong>38 of 50</strong> early bird seats already taken</p>
+        <div class="seat-bar" style="justify-content:center;margin:14px auto 10px">
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+        </div>
+        <p class="seats-count">⚠️ Only 12 Early Bird Seats Remaining at ₹99 — Price Increases to ₹299 When Gone</p>
       </div>
     </div>
   </div>
 
-  <!-- ═══ PAIN SECTION ═══ -->
+  <!-- ═══ AI RACE URGENCY SECTION ═══ -->
+  <!-- ═══ IN 30 MINS RESULTS ═══ -->
+  <section id="results-preview">
+    <div class="container">
+      <span class="section-label">The Outcome</span>
+      <h2>In Just <span class="grad">30 Minutes Inside the Workshop</span>...</h2>
+      <p class="sub">Your next Meta campaign will be live — and generating results like this. No agency. No developer. Just you and Claude.</p>
+
+      <div class="results-video-wrap">
+        <div class="results-video-placeholder" id="results-vid-poster" onclick="playResultsVideo()">
+          <div class="results-play">▶</div>
+          <div class="results-video-label">Watch — Live campaign launch inside the workshop</div>
+        </div>
+        <video id="results-vid" controls playsinline preload="none" style="display:none;width:100%;aspect-ratio:16/9"></video>
+      </div>
+
+      <div class="results-stats">
+        <div class="result-stat">
+          <span class="result-num">↓65%</span>
+          <div class="result-label">Average CPL drop after implementing the CAPF strategy</div>
+        </div>
+        <div class="result-stat">
+          <span class="result-num">40 min</span>
+          <div class="result-label">Time to first lead after launching live inside the workshop</div>
+        </div>
+        <div class="result-stat">
+          <span class="result-num">₹68K</span>
+          <div class="result-label">Average monthly savings redirected back to Meta ads</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai-race">
+    <div class="container">
+      <span class="race-tag">🚨 The AI Race Is Happening RIGHT NOW</span>
+      <h2>While You're Reading This,<br/><span class="grad">Your Competitors Are Moving Ahead.</span></h2>
+
+      <div class="race-stats">
+        <div class="race-stat">
+          <span class="race-num">1,200+</span>
+          <div class="race-label">Indian coaches enrolled in AI-powered marketing workshops this week alone</div>
+        </div>
+        <div class="race-stat">
+          <span class="race-num">₹68,000</span>
+          <div class="race-label">Average monthly savings when coaches replace agency + tool stack with Claude</div>
+        </div>
+        <div class="race-stat">
+          <span class="race-num">3 Hours</span>
+          <div class="race-label">That's all it takes to go from agency-dependent to fully independent in this workshop</div>
+        </div>
+      </div>
+
+      <p class="race-copy">
+        Meta's algorithm rewards coaches who move fast — who test more creatives, optimize quickly, and iterate in real time.
+        <strong>Your agency can't do that.</strong> They have 30 other clients. They batch your updates.
+        They send Friday reports while your budget burns Monday through Thursday.<br/><br/>
+        <em>Every week you wait = another week a competitor is compounding their advantage.</em><br/><br/>
+        The coaches who master Claude-powered performance marketing in 2026 will own their niche for the next 5 years.
+        The ones who don't will keep paying agencies ₹70,000/month to fall further behind.
+        <strong>This 3-hour workshop is your window. Don't miss it.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ PAIN ═══ -->
   <section id="pain">
     <div class="container">
       <span class="section-label">The Real Problem</span>
       <h2>Sound Familiar? 😤</h2>
       <p class="intro-text">If you're an established coach running Meta ads, this will feel uncomfortably real.</p>
-
       <div class="pain-grid">
-        <div class="pain-card">
-          <span class="pain-icon">💸</span>
-          You're paying <strong>₹50,000–₹1,00,000/month</strong> to an agency that earns MORE when you spend MORE — their incentive is your spend, not your ROAS.
-        </div>
-        <div class="pain-card">
-          <span class="pain-icon">⏳</span>
-          You ask for a creative update. They say <strong>"we'll update by Friday."</strong> Meanwhile your CPL goes from ₹180 to ₹400 in 3 days.
-        </div>
-        <div class="pain-card">
-          <span class="pain-icon">🔒</span>
-          They own your <strong>ad account, your pixel, your data.</strong> You can't leave without losing 6 months of campaign history. One coach lost ₹25 lakh in migration costs.
-        </div>
-        <div class="pain-card">
-          <span class="pain-icon">🧰</span>
-          Then add: Pabbly + Email tool + WhatsApp automation + CRM + Hosting = <strong>₹15,000–₹18,000/month more</strong> in tools that still need someone to manage them.
-        </div>
-        <div class="pain-card">
-          <span class="pain-icon">😤</span>
-          A team member leaves. Your entire <strong>follow-up sequence breaks</strong> at the exact moment your best campaign is live.
-        </div>
-        <div class="pain-card">
-          <span class="pain-icon">📊</span>
-          You stare at an ads dashboard you can't fully read, trusting the agency's monthly PDF report that's always <strong>3 weeks delayed.</strong>
-        </div>
+        <div class="pain-card"><span class="pain-icon">💸</span>You're paying <strong>₹50,000–₹1,00,000/month</strong> to an agency that earns MORE when you spend MORE — their incentive is your spend, not your ROAS.</div>
+        <div class="pain-card"><span class="pain-icon">⏳</span>You ask for a creative update. They say <strong>"we'll update by Friday."</strong> Meanwhile your CPL goes from ₹180 to ₹400 in 3 days.</div>
+        <div class="pain-card"><span class="pain-icon">🔒</span>They own your <strong>ad account, your pixel, your data.</strong> You can't leave without losing 6 months of campaign history — one coach lost ₹25 lakh in migration costs.</div>
+        <div class="pain-card"><span class="pain-icon">🧰</span>Then add: Pabbly + Email tool + WhatsApp automation + CRM + Hosting = <strong>₹15,000–₹18,000/month more</strong> in tools that still need someone to manage them.</div>
+        <div class="pain-card"><span class="pain-icon">😤</span>A team member leaves. Your entire <strong>follow-up sequence breaks</strong> at the exact moment your best campaign is live.</div>
+        <div class="pain-card"><span class="pain-icon">📊</span>You stare at an ads dashboard you can't fully read, trusting the agency's monthly PDF that's always <strong>3 weeks delayed.</strong></div>
       </div>
-
       <div class="pain-total">
         <p>Total cost of this situation leaving your business</p>
         <span class="big-num">₹65,000 – ₹1,20,000/month</span>
@@ -988,47 +885,26 @@
     </div>
   </section>
 
-  <!-- ═══ SHIFT SECTION ═══ -->
+  <!-- ═══ SHIFT ═══ -->
   <section id="shift">
     <div class="container">
       <span class="section-label">The 1ManAgencyPlan Way</span>
       <h2>What if you replaced all of that <span class="gold">with ₹2,000/month?</span></h2>
       <p class="intro-text">With Claude as your 24/7 CMO, strategist, copywriter, and media buyer:</p>
-
       <div class="shift-grid">
-        <div class="shift-card">
-          <span class="shift-icon">🔍</span>
-          <strong>Audit your entire funnel in 45 minutes</strong> — find exactly where leads are dropping and what your agency hasn't told you.
-        </div>
-        <div class="shift-card">
-          <span class="shift-icon">✍️</span>
-          <strong>Generate 10 Meta ad variants in 3 minutes</strong> — hooks, copy, CTAs — tested and ready to upload.
-        </div>
-        <div class="shift-card">
-          <span class="shift-icon">⚡</span>
-          <strong>Optimize a bleeding campaign in 10 minutes</strong> — no meetings, no waiting, no Friday updates.
-        </div>
-        <div class="shift-card">
-          <span class="shift-icon">🏗️</span>
-          <strong>Build a high-converting landing page from scratch</strong> — no developer, no designer, no Webflow subscription.
-        </div>
-        <div class="shift-card">
-          <span class="shift-icon">🤖</span>
-          <strong>Run your WhatsApp + email follow-up</strong> — without Pabbly, without ActiveCampaign, without any automation tool.
-        </div>
-        <div class="shift-card">
-          <span class="shift-icon">👑</span>
-          <strong>Own your data, own your accounts, own your strategy</strong> — zero agency dependency, forever.
-        </div>
+        <div class="shift-card"><span class="shift-icon">🔍</span><strong>Audit your entire funnel in 45 minutes</strong> — find exactly where leads are dropping and what your agency hasn't told you.</div>
+        <div class="shift-card"><span class="shift-icon">✍️</span><strong>Generate 10 Meta ad variants in 3 minutes</strong> — hooks, copy, CTAs — tested and ready to upload.</div>
+        <div class="shift-card"><span class="shift-icon">⚡</span><strong>Optimize a bleeding campaign in 10 minutes</strong> — no meetings, no waiting, no Friday updates.</div>
+        <div class="shift-card"><span class="shift-icon">🏗️</span><strong>Build a high-converting landing page from scratch</strong> — no developer, no designer, no Webflow subscription.</div>
+        <div class="shift-card"><span class="shift-icon">🤖</span><strong>Run your WhatsApp + email follow-up</strong> — without Pabbly, without ActiveCampaign, without any automation tool.</div>
+        <div class="shift-card"><span class="shift-icon">👑</span><strong>Own your data, your accounts, your strategy</strong> — zero agency dependency, forever.</div>
       </div>
-
       <div class="shift-total">
         <p>Put this back into Meta ads every month</p>
         <span class="savings">₹63,000–₹1,18,000</span>
         <p>That's the money that compounds. That's what beats the big teams.</p>
       </div>
-
-      <button class="btn-primary" onclick="openModal('99')">I Want This System → ₹99</button>
+      <button class="btn btn-pulse" onclick="openModal('99')">I Want This System → ₹99</button>
     </div>
   </section>
 
@@ -1038,7 +914,6 @@
       <span class="section-label">Workshop Agenda</span>
       <h2>What You'll Do in <span class="gold">3 Hours Live</span></h2>
       <p class="intro-text">This is not a theory lecture. You'll execute every step in real time.</p>
-
       <div class="agenda-grid">
         <div class="agenda-card">
           <span class="agenda-emoji">🔍</span>
@@ -1059,24 +934,185 @@
           <p class="agenda-desc">Set up your complete performance marketing OS inside Claude — ad testing framework, optimization prompts, weekly reporting templates. You leave with a system that runs itself.</p>
         </div>
       </div>
+      <!-- Terminal code animation -->
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
+          <span class="terminal-title">claude-code — 1ManAgencyPlan workshop session</span>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div class="t-line" id="tl-0"><span class="t-prompt">$</span><span class="t-cmd"> claude "Audit my Meta ads funnel — landing page: 1managencyplan.com"</span></div>
+          <div class="t-line" id="tl-1"><span class="t-success">✓</span><span class="t-cmd"> Funnel audit complete → 3 critical leaks found</span></div>
+          <div class="t-line" id="tl-2"><span class="t-warn">⚠</span><span class="t-cmd"> CPL spike detected: ₹420 (was ₹180) — headline mismatch with ad hook</span></div>
+          <div class="t-line" id="tl-3"><span class="t-prompt">$</span><span class="t-cmd"> claude "Generate 10 Meta ad hook variants for coaches — niche: performance marketing"</span></div>
+          <div class="t-line" id="tl-4"><span class="t-success">✓</span><span class="t-cmd"> 10 ad hooks generated in 2.4 seconds — top performer predicted: Hook #3</span></div>
+          <div class="t-line" id="tl-5"><span class="t-comment"># Building new landing page with Claude Code...</span></div>
+          <div class="t-line" id="tl-6"><span class="t-success">✓</span><span class="t-cmd"> Landing page built → connected to Meta Ads Manager → Pixel firing</span></div>
+          <div class="t-line" id="tl-7"><span class="t-prompt">$</span><span class="t-cmd"> claude "Launch Advantage+ campaign — budget ₹500/day — target: coaches 28-45"</span></div>
+          <div class="t-line" id="tl-8"><span class="t-success">✓</span><span class="t-cmd"> Campaign live 🚀 — first lead in 38 minutes</span></div>
+          <div class="t-line" id="tl-9"><span class="t-success">✓</span><span class="t-cmd"> CPL after optimization: <strong style="color:var(--gold)">₹142</strong> (was ₹420) — <strong style="color:var(--green)">↓66%</strong></span></div>
+          <div class="t-line" id="tl-10"><span class="t-comment"># This is what happens in 3 hours at the workshop. <span class="t-cursor"></span></span></div>
+        </div>
+      </div>
 
-      <button class="btn-primary" onclick="openModal('99')">Reserve My Seat → ₹99</button>
+      <button class="btn" onclick="openModal('99')" style="margin-top:36px">Reserve My Seat → ₹99</button>
     </div>
   </section>
 
-  <!-- ═══ WHO IS THIS FOR ═══ -->
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonials">
+    <div class="container">
+      <span class="section-label">Real Results</span>
+      <h2>Coaches Who <span class="gold">Transformed Their Marketing</span></h2>
+      <p class="intro-text">Hear directly from coaches who implemented Nitin's CAPF strategy.</p>
+
+      <div class="testi-grid">
+
+        <!-- Card 1 — Veer Narayana Kulkarni #1 (HLS) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <video id="vid-1" controls playsinline preload="none"></video>
+            <div class="vid-poster" id="poster-1" onclick="playHLS('vid-1','https://stream.files-vault.com/20e4831d-625f-42da-beab-5530d496fb56/playlist.m3u8','poster-1')">
+              <div class="vid-initials">VK</div>
+              <div class="vid-play">▶</div>
+              <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
+            </div>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Veer Narayana Kulkarni</div>
+            <div class="testi-role">Founder — Holistic Health Society</div>
+            <div class="testi-result">Ditched my agency retainer completely. Using Nitin's CAPF strategy, my <strong>CPL dropped by 65%</strong> and I now run all my Meta campaigns myself.</div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Veer Narayana Kulkarni #2 (HLS) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <video id="vid-2" controls playsinline preload="none"></video>
+            <div class="vid-poster" id="poster-2" onclick="playHLS('vid-2','https://stream.files-vault.com/c71abcac-3d7d-4a95-9f39-3a99f91cd316/playlist.m3u8','poster-2')">
+              <div class="vid-initials">VK</div>
+              <div class="vid-play">▶</div>
+              <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
+            </div>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Veer Narayana Kulkarni</div>
+            <div class="testi-role">Founder — Holistic Health Society</div>
+            <div class="testi-result">Redirected <strong>₹80,000/month</strong> from agency fees back into Meta ads. My webinar show-up rate doubled within the first 30 days.</div>
+          </div>
+        </div>
+
+        <!-- Card 3 — Harish (HLS) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <video id="vid-3" controls playsinline preload="none"></video>
+            <div class="vid-poster" id="poster-3" onclick="playHLS('vid-3','https://stream.files-vault.com/3efdcfef-5073-4878-a771-da5bbe5c4705/playlist.m3u8','poster-3')">
+              <div class="vid-initials">H</div>
+              <div class="vid-play">▶</div>
+              <div class="vid-name-overlay">Harish</div>
+            </div>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Harish</div>
+            <div class="testi-role">Founder — Success Formula 1 Academy</div>
+            <div class="testi-result">Cut our entire tool stack — Pabbly, CRM, email tools — all replaced with one Claude subscription. <strong>Saved ₹18,000/month</strong> in tools alone.</div>
+          </div>
+        </div>
+
+        <!-- Card 4 — Manjunath Nagaraja (HLS) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <video id="vid-4" controls playsinline preload="none"></video>
+            <div class="vid-poster" id="poster-4" onclick="playHLS('vid-4','https://stream.files-vault.com/7ac23b7c-4069-4e16-aadc-0423a561288f/playlist.m3u8','poster-4')">
+              <div class="vid-initials">MN</div>
+              <div class="vid-play">▶</div>
+              <div class="vid-name-overlay">Manjunath Nagaraja</div>
+            </div>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Manjunath Nagaraja</div>
+            <div class="testi-role">CEO — Targethub Consulting</div>
+            <div class="testi-result">Was spending <strong>₹1.2L/month</strong> on agency + tools. Nitin's CAPF system gave me full control in 3 hours. Best investment I made for my business.</div>
+          </div>
+        </div>
+
+        <!-- Card 5 — Harry Ranveer (HLS) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <video id="vid-5" controls playsinline preload="none"></video>
+            <div class="vid-poster" id="poster-5" onclick="playHLS('vid-5','https://stream.files-vault.com/a454b72c-5dd8-426e-94e4-2453f5c3973f/playlist.m3u8','poster-5')">
+              <div class="vid-initials">HR</div>
+              <div class="vid-play">▶</div>
+              <div class="vid-name-overlay">Harry Ranveer</div>
+            </div>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Harry Ranveer</div>
+            <div class="testi-role">Co-founder — Visual Media Pro &amp; AI Filmmakers</div>
+            <div class="testi-result">Launched <strong>3 live Meta campaigns myself</strong> the same day as the workshop. Zero agency dependency. The live build session was extraordinary.</div>
+          </div>
+        </div>
+
+        <!-- Card 6 — Dr. Mittal Patel (YouTube) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <iframe src="https://www.youtube.com/embed/Us8Y8CrRj4U?rel=0&modestbranding=1" title="Dr. Mittal Patel testimonial" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Dr. Mittal Patel</div>
+            <div class="testi-role">Founder — Mittal Patel Edu &amp; Om Education Academy</div>
+            <div class="testi-result">My CPL went from <strong>₹520 to ₹160 in 6 weeks</strong>. The live campaign launch inside the workshop was worth 10x the investment.</div>
+          </div>
+        </div>
+
+        <!-- Card 7 — Gaurav Guru (YouTube) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <iframe src="https://www.youtube.com/embed/j5GT_vLw5Jo?rel=0&modestbranding=1" title="Gaurav Guru testimonial" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Gaurav Guru</div>
+            <div class="testi-role">AI Consultant</div>
+            <div class="testi-result">As an AI consultant I now recommend Nitin's CAPF strategy to every coaching client. <strong>10x ROI</strong> on the very next webinar after implementation.</div>
+          </div>
+        </div>
+
+        <!-- Card 8 — Swastik Nandakumar (YouTube) -->
+        <div class="testi-card">
+          <div class="testi-video">
+            <iframe src="https://www.youtube.com/embed/9NOVUM_NRoA?rel=0&modestbranding=1" title="Swastik Nandakumar testimonial" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="testi-body">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-name">Swastik Nandakumar</div>
+            <div class="testi-role">Peak Performance Coach &amp; Business Growth Expert</div>
+            <div class="testi-result">Paid ₹99, saved <strong>₹72,000 the very next month</strong>. The 1ManAgencyPlan system replaced my entire marketing dependency. Should've done this earlier.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO ═══ -->
   <section id="who">
     <div class="container">
       <span class="section-label">Eligibility</span>
       <h2>Is This Workshop <span class="gold">For You?</span></h2>
       <p class="intro-text">This workshop is designed for a very specific type of coach. Please read carefully.</p>
-
       <div class="who-grid">
         <div class="who-col">
           <div class="who-col-title yes">✅ This IS For You If...</div>
-          <div class="who-item"><span class="who-icon">✅</span>You're a coach who is already selling and has a working offer</div>
+          <div class="who-item"><span class="who-icon">✅</span>You're a coach already selling and have a working offer</div>
           <div class="who-item"><span class="who-icon">✅</span>You have niche clarity and a launched funnel</div>
-          <div class="who-item"><span class="who-icon">✅</span>You are currently running Meta ads (or have run them before)</div>
+          <div class="who-item"><span class="who-icon">✅</span>You are currently running Meta ads (or have run them)</div>
           <div class="who-item"><span class="who-icon">✅</span>You're paying an agency ₹30,000+/month and not seeing clear ROI</div>
           <div class="who-item"><span class="who-icon">✅</span>You want full control, full data ownership, zero dependency</div>
           <div class="who-item"><span class="who-icon">✅</span>You're ready to invest ₹2,000/month in a Claude subscription</div>
@@ -1084,8 +1120,8 @@
         <div class="who-col">
           <div class="who-col-title no">🚫 This Is NOT For You If...</div>
           <div class="who-item"><span class="who-icon">🚫</span>You're still figuring out your niche or coaching offer</div>
-          <div class="who-item"><span class="who-icon">🚫</span>You've never run a Meta ad campaign</div>
-          <div class="who-item"><span class="who-icon">🚫</span>You want someone else to run your ads for you (we have no agency here)</div>
+          <div class="who-item"><span class="who-icon">🚫</span>You've never run a Meta ad campaign before</div>
+          <div class="who-item"><span class="who-icon">🚫</span>You want someone else to run your ads for you</div>
           <div class="who-item"><span class="who-icon">🚫</span>You're looking for a basic "intro to digital marketing" workshop</div>
           <div class="who-item"><span class="who-icon">🚫</span>You're not ready to invest in a Claude subscription to implement</div>
         </div>
@@ -1093,103 +1129,277 @@
     </div>
   </section>
 
-  <!-- ═══ COMPARE TABLE ═══ -->
+  <!-- ═══ COMPARE ═══ -->
   <section id="compare">
     <div class="container">
       <span class="section-label">Side-by-Side</span>
       <h2>The Old Way vs. <span class="gold">1ManAgencyPlan</span></h2>
       <p class="intro-text">See exactly what changes when you stop outsourcing your growth.</p>
-
       <table class="compare-table">
         <thead>
-          <tr>
-            <th></th>
-            <th class="old">❌ The Old Way</th>
-            <th class="new">✅ 1ManAgencyPlan</th>
-          </tr>
+          <tr><th></th><th class="old">❌ The Old Way</th><th class="new">✅ 1ManAgencyPlan</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Monthly Marketing Cost</td>
-            <td>₹50,000–₹1,00,000/month agency retainer</td>
-            <td>₹2,000/month Claude subscription</td>
-          </tr>
-          <tr>
-            <td>Automation Tools Stack</td>
-            <td>Pabbly + CRM + Email + WhatsApp = ₹15,000+/month</td>
-            <td>Claude handles all of it — ₹0 extra</td>
-          </tr>
-          <tr>
-            <td>Ad Updates Speed</td>
-            <td>"We'll update by Friday" (3–5 days)</td>
-            <td>Done in 10 minutes, right now</td>
-          </tr>
-          <tr>
-            <td>Account Ownership</td>
-            <td>Agency owns your pixel + ad account</td>
-            <td>You own everything, always</td>
-          </tr>
-          <tr>
-            <td>Contract Lock-in</td>
-            <td>6–12 month retainer (30% fail in 90 days)</td>
-            <td>Cancel Claude anytime, no lock-in</td>
-          </tr>
-          <tr>
-            <td>Availability</td>
-            <td>9 AM–6 PM, Mon–Fri only</td>
-            <td>24/7 — instant response, always on</td>
-          </tr>
-          <tr>
-            <td>Strategic Input</td>
-            <td>Monthly PDF report, 3 weeks delayed</td>
-            <td>CMO-level consultation, on demand</td>
-          </tr>
-          <tr>
-            <td>Team Dependency Risk</td>
-            <td>One person leaves = your funnel breaks</td>
-            <td>Zero — Claude never quits</td>
-          </tr>
+          <tr><td>Monthly Marketing Cost</td><td>₹50,000–₹1,00,000/month</td><td>₹2,000/month Claude only</td></tr>
+          <tr><td>Automation Tools Stack</td><td>Pabbly + CRM + Email + WhatsApp = ₹15,000+/month</td><td>Claude handles all — ₹0 extra</td></tr>
+          <tr><td>Ad Updates Speed</td><td>"We'll update by Friday" (3–5 days)</td><td>Done in 10 minutes, right now</td></tr>
+          <tr><td>Account Ownership</td><td>Agency owns your pixel + ad account</td><td>You own everything, always</td></tr>
+          <tr><td>Contract Lock-in</td><td>6–12 month retainer</td><td>Cancel Claude anytime</td></tr>
+          <tr><td>Availability</td><td>9 AM–6 PM, Mon–Fri only</td><td>24/7 — instant response</td></tr>
+          <tr><td>Strategic Input</td><td>Monthly PDF report, 3 weeks delayed</td><td>CMO-level consultation, on demand</td></tr>
+          <tr><td>Team Dependency Risk</td><td>One person leaves = funnel breaks</td><td>Zero — Claude never quits</td></tr>
         </tbody>
         <tfoot>
-          <tr>
-            <td>💸 What You Redirect to Meta Ads</td>
-            <td>₹0 — it all goes to the agency</td>
-            <td>₹63,000–₹1,18,000/month</td>
-          </tr>
+          <tr><td>💸 Redirected to Meta Ads</td><td>₹0 — it all goes to the agency</td><td>₹63,000–₹1,18,000/month</td></tr>
         </tfoot>
       </table>
     </div>
   </section>
 
-  <!-- ═══ ABOUT NITIN ═══ -->
+  <!-- ═══ ABOUT ═══ -->
   <section id="about">
     <div class="about-inner">
-      <div class="about-img-wrap">
-        <img
-          src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/funnel_builder/landing_pages/content/148920/87af2e76d34728a2b2272c58ff99d43c-87af2e76d34728a2b2272c58ff99d43c-nitin-profile.webp"
-          alt="Nitin Joshi — AI Automation Coach"
-          loading="lazy"
-        />
+      <div class="about-img-wrap" style="position:relative">
+        <div class="img-slider" id="about-slider">
+          <div class="img-slider-track" id="slider-track">
+
+            <!-- Slide 1 — Main profile -->
+            <div class="img-slide">
+              <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/funnel_builder/landing_pages/content/148920/87af2e76d34728a2b2272c58ff99d43c-87af2e76d34728a2b2272c58ff99d43c-nitin-profile.webp" alt="Nitin Joshi" loading="lazy" />
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="img-slide">
+              <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/1780742355-0fZWfNzjiK.webp" alt="Nitin Joshi" loading="lazy" />
+            </div>
+
+            <!-- Slide 3 — rotated 90° clockwise to correct orientation -->
+            <div class="img-slide" style="overflow:hidden;position:relative">
+              <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/1780742031-3dlHsZ6x7H.webp" alt="Nitin Joshi" loading="lazy"
+                style="position:absolute;top:50%;left:50%;
+                       width:380px;height:380px;
+                       object-fit:cover;object-position:center top;
+                       transform:translate(-50%,-50%) rotate(90deg);
+                       transform-origin:center" />
+            </div>
+
+          </div>
+
+          <button class="slider-btn prev" onclick="slideMove(-1)">‹</button>
+          <button class="slider-btn next" onclick="slideMove(1)">›</button>
+        </div>
+
+        <div class="slider-dots" id="slider-dots">
+          <div class="slider-dot active" onclick="slideTo(0)"></div>
+          <div class="slider-dot" onclick="slideTo(1)"></div>
+          <div class="slider-dot" onclick="slideTo(2)"></div>
+        </div>
         <div class="about-img-ring"></div>
       </div>
-      <div class="about-content">
-        <span class="tag about-tag">Your Workshop Instructor</span>
+      <div>
+        <span class="tag" style="margin-bottom:16px;display:inline-block">Your Workshop Instructor</span>
         <div class="about-name">Nitin Joshi</div>
         <div class="about-role">Digital Freelancer → AI Automation Coach for Coaches</div>
-        <p class="about-bio">
-          Nitin has worked with <strong style="color:var(--text-white)">100+ coaches across India</strong> — building their end-to-end funnels, email automation, WhatsApp sequences, and performance marketing systems from scratch. He has seen firsthand how agency dependency, tool overload, and slow optimization cycles quietly drain coaching businesses that are otherwise thriving.
-        </p>
-        <p class="about-bio">
-          Today, Nitin teaches coaches how to replace their entire marketing stack with a single Claude subscription — and put that freed-up budget where it actually compounds: Meta ads.
-        </p>
+        <p class="about-bio">Nitin has worked with <strong style="color:var(--white)">100+ coaches across India</strong> — building end-to-end funnels, email automation, WhatsApp sequences, and performance marketing systems from scratch. He has seen firsthand how agency dependency, tool overload, and slow optimization cycles quietly drain coaching businesses that are otherwise thriving.</p>
+        <p class="about-bio">Today, Nitin teaches coaches how to replace their entire marketing stack with a single Claude subscription — and redirect that freed-up budget where it actually compounds: Meta ads.</p>
         <div class="about-stats">
           <div class="stat-item"><span class="stat-num">100+</span><span class="stat-label">Coaches Helped</span></div>
-          <div class="stat-item"><span class="stat-num">₹2K</span><span class="stat-label">Per Month Tool</span></div>
+          <div class="stat-item"><span class="stat-num">₹2K</span><span class="stat-label">Monthly Tool Cost</span></div>
           <div class="stat-item"><span class="stat-num">3 Hrs</span><span class="stat-label">Live Workshop</span></div>
         </div>
-        <div class="about-quote">
-          "I've built the complete funnel for coaches — landing pages, email, WhatsApp, Meta ads, CRM. I've seen what works and what quietly drains the budget. This workshop is everything I wish coaches knew from Day 1."
+        <div class="about-quote">"I've built complete funnels for coaches — landing pages, email, WhatsApp, Meta ads, CRM. I've seen what works and what quietly drains the budget. This workshop is everything I wish coaches knew from Day 1."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LEADERS MARQUEE ═══ -->
+  <section id="leaders">
+    <div class="leaders-head">
+      <p>Coaches &amp; industry leaders who trust the process</p>
+      <h3>Nitin Has Worked With &amp; Learned From India's Best</h3>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+
+        <!-- Set 1 -->
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/1b3cb0d06ba5f8ba3a9b5b624c1d0eef?size=1200" alt="Harry Ranveer" loading="lazy" />
+          <div class="marquee-name">Harry Ranveer</div>
+          <div class="marquee-role">Co-founder, Visual Media Pro &amp; AI Filmmakers</div>
         </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/316d9719e163dde0b2869fd86a1b6953?size=1200" alt="Rohan Dhawan" loading="lazy" />
+          <div class="marquee-name">Rohan Dhawan</div>
+          <div class="marquee-role">Digital Marketing Expert</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/275e73e17ce3f05bd75bcc313de15689?size=1200" alt="Team Digital Deepak" loading="lazy" />
+          <div class="marquee-name">Team Digital Deepak</div>
+          <div class="marquee-role">Digital Deepak Community</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/6bb383a99cb642bf68eae2c21e7ba2e1?size=1200" alt="Sridev Ramesh" loading="lazy" />
+          <div class="marquee-name">Sridev Ramesh</div>
+          <div class="marquee-role">Co-founder &amp; CEO, 100xEngineers</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/2480e4940692e396147961f8b6e508ca?size=1200" alt="Siddhant Goswami" loading="lazy" />
+          <div class="marquee-name">Siddhant Goswami</div>
+          <div class="marquee-role">Co-founder &amp; CTO, 100xEngineers</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/db756b592cf32c32c09349ee2e46bcba?size=1200" alt="Avi Arya" loading="lazy" />
+          <div class="marquee-name">Avi Arya</div>
+          <div class="marquee-role">Founder, Internet Moguls</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/9f575185855ebdf8f375d7a6dd102d80?size=1200" alt="Saurabh Bhatnagar" loading="lazy" />
+          <div class="marquee-name">Saurabh Bhatnagar</div>
+          <div class="marquee-role">Co-founder, FlexiFunnels</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/e91bfd0c89a863411f881c9295c45a0f?size=1200" alt="Swastik Nandkumar" loading="lazy" />
+          <div class="marquee-name">Swastik Nandkumar</div>
+          <div class="marquee-role">Peak Performance Coach</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/cb928c917da861160efa09941143da4f?size=1200" alt="Jayant Padhi" loading="lazy" />
+          <div class="marquee-name">Jayant Padhi</div>
+          <div class="marquee-role">Digital Marketing Expert</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/a27e4cfe2def142d52f268a0d86f55a7?size=1200" alt="Digital Deepak" loading="lazy" />
+          <div class="marquee-name">Digital Deepak</div>
+          <div class="marquee-role">India's #1 Digital Marketer</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/6c07b120cbdfc5a541c248460cc370c7?size=1200" alt="Faheem Ahmad" loading="lazy" />
+          <div class="marquee-name">Faheem Ahmad</div>
+          <div class="marquee-role">Digital Marketing Coach</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/b2cf2d30b3e0638f29578d66fa6fc478?size=1200" alt="Rahul Bhatnagar" loading="lazy" />
+          <div class="marquee-name">Rahul Bhatnagar</div>
+          <div class="marquee-role">Coach &amp; Motivational Speaker</div>
+        </div>
+
+        <!-- Set 2 — duplicate for seamless infinite loop -->
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/1b3cb0d06ba5f8ba3a9b5b624c1d0eef?size=1200" alt="Harry Ranveer" loading="lazy" />
+          <div class="marquee-name">Harry Ranveer</div>
+          <div class="marquee-role">Co-founder, Visual Media Pro &amp; AI Filmmakers</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/316d9719e163dde0b2869fd86a1b6953?size=1200" alt="Rohan Dhawan" loading="lazy" />
+          <div class="marquee-name">Rohan Dhawan</div>
+          <div class="marquee-role">Digital Marketing Expert</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/275e73e17ce3f05bd75bcc313de15689?size=1200" alt="Team Digital Deepak" loading="lazy" />
+          <div class="marquee-name">Team Digital Deepak</div>
+          <div class="marquee-role">Digital Deepak Community</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/6bb383a99cb642bf68eae2c21e7ba2e1?size=1200" alt="Sridev Ramesh" loading="lazy" />
+          <div class="marquee-name">Sridev Ramesh</div>
+          <div class="marquee-role">Co-founder &amp; CEO, 100xEngineers</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/2480e4940692e396147961f8b6e508ca?size=1200" alt="Siddhant Goswami" loading="lazy" />
+          <div class="marquee-name">Siddhant Goswami</div>
+          <div class="marquee-role">Co-founder &amp; CTO, 100xEngineers</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/db756b592cf32c32c09349ee2e46bcba?size=1200" alt="Avi Arya" loading="lazy" />
+          <div class="marquee-name">Avi Arya</div>
+          <div class="marquee-role">Founder, Internet Moguls</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://0.gravatar.com/userimage/246852052/9f575185855ebdf8f375d7a6dd102d80?size=1200" alt="Saurabh Bhatnagar" loading="lazy" />
+          <div class="marquee-name">Saurabh Bhatnagar</div>
+          <div class="marquee-role">Co-founder, FlexiFunnels</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/e91bfd0c89a863411f881c9295c45a0f?size=1200" alt="Swastik Nandkumar" loading="lazy" />
+          <div class="marquee-name">Swastik Nandkumar</div>
+          <div class="marquee-role">Peak Performance Coach</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/cb928c917da861160efa09941143da4f?size=1200" alt="Jayant Padhi" loading="lazy" />
+          <div class="marquee-name">Jayant Padhi</div>
+          <div class="marquee-role">Digital Marketing Expert</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://2.gravatar.com/userimage/246852052/a27e4cfe2def142d52f268a0d86f55a7?size=1200" alt="Digital Deepak" loading="lazy" />
+          <div class="marquee-name">Digital Deepak</div>
+          <div class="marquee-role">India's #1 Digital Marketer</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/6c07b120cbdfc5a541c248460cc370c7?size=1200" alt="Faheem Ahmad" loading="lazy" />
+          <div class="marquee-name">Faheem Ahmad</div>
+          <div class="marquee-role">Digital Marketing Coach</div>
+        </div>
+        <div class="marquee-card">
+          <img class="marquee-img" src="https://1.gravatar.com/userimage/246852052/b2cf2d30b3e0638f29578d66fa6fc478?size=1200" alt="Rahul Bhatnagar" loading="lazy" />
+          <div class="marquee-name">Rahul Bhatnagar</div>
+          <div class="marquee-role">Coach &amp; Motivational Speaker</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BONUSES ═══ -->
+  <section id="bonuses">
+    <div class="container">
+      <span class="section-label">Free Bonuses</span>
+      <h2>🎁 Everything You Get<br/><span class="grad">When You Register Today</span></h2>
+      <div class="bonus-total">Total Bonus Value: ₹24,997 — Yours FREE with Workshop Registration</div>
+
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <span class="bonus-icon">🎯</span>
+          <div class="bonus-title">50+ Claude Prompt Cheat Sheet</div>
+          <div class="bonus-desc">Ready-to-copy prompts for Meta ad copy, audience research, funnel audits, optimization, and weekly reporting. Use immediately after the workshop.</div>
+          <div class="bonus-value"><span class="val">₹4,999</span><span class="free">FREE</span></div>
+        </div>
+        <div class="bonus-card">
+          <span class="bonus-icon">📹</span>
+          <div class="bonus-title">Lifetime Recording Access</div>
+          <div class="bonus-desc">Rewatch the full 3-hour live workshop forever. Includes all future updates as Meta's algorithm evolves. Never fall behind again.</div>
+          <div class="bonus-value"><span class="val">₹2,999</span><span class="free">FREE</span></div>
+        </div>
+        <div class="bonus-card">
+          <span class="bonus-icon">💬</span>
+          <div class="bonus-title">Private WhatsApp Community</div>
+          <div class="bonus-desc">Join a community of established coaches running their own campaigns. Direct access to Nitin for questions, campaign reviews, and optimization tips.</div>
+          <div class="bonus-value"><span class="val">₹3,999</span><span class="free">FREE</span></div>
+        </div>
+        <div class="bonus-card">
+          <span class="bonus-icon">📊</span>
+          <div class="bonus-title">Meta Ads Campaign Template Pack</div>
+          <div class="bonus-desc">Pre-built campaign structures, ad set configurations, and copy frameworks for coaches. Plug in your offer and launch — no guessing required.</div>
+          <div class="bonus-value"><span class="val">₹5,999</span><span class="free">FREE</span></div>
+        </div>
+        <div class="bonus-card">
+          <span class="bonus-icon">🔍</span>
+          <div class="bonus-title">Agency Audit Checklist</div>
+          <div class="bonus-desc">14-point checklist to audit your current agency — or know exactly when to fire them. Includes the right questions to ask about pixel ownership, attribution, and reporting.</div>
+          <div class="bonus-value"><span class="val">₹2,999</span><span class="free">FREE</span></div>
+        </div>
+        <div class="bonus-card">
+          <span class="bonus-icon">⚙️</span>
+          <div class="bonus-title">1ManAgencyPlan OS Template</div>
+          <div class="bonus-desc">Nitin's complete Claude workflow for weekly ad management — the exact system to run your campaigns in under 30 minutes per week. Works forever.</div>
+          <div class="bonus-value"><span class="val">₹4,002</span><span class="free">FREE</span></div>
+        </div>
+      </div>
+
+      <div class="bonus-cta-box" style="background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);border-radius:var(--rl);padding:24px 32px;max-width:560px;margin:0 auto;text-align:center">
+        <div style="font-size:13px;color:var(--muted);margin-bottom:6px">All bonuses included at</div>
+        <div style="font-size:36px;font-weight:900;color:var(--gold)">₹99</div>
+        <div style="font-size:13px;color:var(--muted);text-decoration:line-through">Total value: ₹24,997</div>
+        <button class="btn btn-pulse" onclick="openModal('99')" style="margin-top:18px;font-size:15px;padding:14px 36px">Claim All Bonuses → ₹99</button>
       </div>
     </div>
   </section>
@@ -1200,7 +1410,6 @@
       <span class="section-label">Workshop Pricing</span>
       <h2>Choose Your Seat</h2>
       <p class="intro-text">Price increases as seats fill. Lock in the lowest price now.</p>
-
       <div class="pricing-grid">
         <div class="price-card featured">
           <div class="price-tier">🟢 Early Bird — First 50 Seats</div>
@@ -1214,36 +1423,29 @@
           <div class="price-amount">₹299</div>
           <div class="price-orig">Original: ₹999</div>
           <div class="price-seats">Unlocks when early bird fills</div>
-          <button class="price-btn" style="opacity:0.7" onclick="openModal('299')">Get ₹299 Seat →</button>
+          <button class="price-btn" style="opacity:.75" onclick="openModal('299')">Get ₹299 Seat →</button>
         </div>
         <div class="price-card">
           <div class="price-tier">🔴 Last Batch — Seats 151–200</div>
           <div class="price-amount">₹499</div>
           <div class="price-orig">Original: ₹999</div>
           <div class="price-seats">Final seats before close</div>
-          <button class="price-btn" style="opacity:0.6" onclick="openModal('499')">Get ₹499 Seat →</button>
+          <button class="price-btn" style="opacity:.6" onclick="openModal('499')">Get ₹499 Seat →</button>
         </div>
       </div>
-
-      <!-- Add-on Bump -->
       <div class="addon-card">
         <div class="addon-checkbox">📹</div>
         <div class="addon-content">
           <div class="addon-title">📹 Add: Lifetime Recording + 50-Prompt Claude Cheat Sheet</div>
-          <div class="addon-desc">Rewatch the full 3-hour workshop forever. Includes our complete prompt library for ads, optimization, landing pages, and reporting — ready to copy-paste.</div>
+          <div class="addon-desc">Rewatch the full 3-hour workshop forever. Includes complete prompt library for ads, optimization, landing pages, and reporting — ready to copy-paste.</div>
         </div>
-        <div class="addon-price">
-          <div class="new">+₹100</div>
-          <div class="old">₹299</div>
-        </div>
+        <div class="addon-price"><div class="new">+₹100</div><div class="old">₹299</div></div>
       </div>
-
-      <!-- Guarantee -->
       <div class="guarantee-card">
-        <div class="guarantee-icon">🛡️</div>
+        <div style="font-size:44px;flex-shrink:0">🛡️</div>
         <div>
           <h4>110% Money-Back Guarantee</h4>
-          <p>If you attend the full 3-hour workshop and don't walk away with complete clarity on running your own Meta ads using Claude — we'll refund your full amount plus ₹25 extra. No questions asked. No forms to fill.</p>
+          <p>Attend the full 3-hour workshop and don't walk away with complete clarity on running your own Meta ads using Claude — we refund your full amount plus ₹25 extra. No questions, no forms, no delays.</p>
         </div>
       </div>
     </div>
@@ -1254,37 +1456,12 @@
     <div class="container">
       <h2>Frequently Asked <span class="gold">Questions</span></h2>
       <div class="faq-list">
-
-        <div class="faq-item">
-          <div class="faq-q">Do I need a Claude subscription before the workshop? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">You don't need one before registering. But you will need the Claude Max plan (₹2,000/month) to fully implement everything live during the workshop. We recommend signing up 1-2 days before so you're ready to build on Day 1.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">I'm a coach but I've only done a few ad campaigns. Is this for me? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">This workshop is for coaches who have run at least one Meta ad campaign and have a working funnel. If you're completely new to ads, we'd recommend getting your first campaign live first, then joining us for optimization. The implementation will make much more sense with real campaign context.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What if I'm still using an agency? Can I join and transition? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">Absolutely — this is exactly who this workshop is built for. Many attendees join while still paying their agency, use the workshop to build their own system in parallel, and cancel their retainer within 30 days. You'll have a working setup before you need to make any decisions.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Will the recording be available if I miss the live session? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">The recording is available as a paid add-on (₹100 extra) at the time of registration. We strongly recommend attending live — the campaign launch and live implementation are interactive and significantly more valuable in real time.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What's the money-back guarantee exactly? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">If you attend the complete 3-hour workshop and do not get full clarity on running your own Meta ads using Claude, we will refund your full registration amount plus ₹25 extra. No forms, no questions, no delays. Just message us on WhatsApp.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Do I need any technical skills or coding knowledge? <span class="faq-arrow">+</span></div>
-          <div class="faq-a">None. Claude Code does the technical heavy lifting. You give it instructions in plain Hindi or English, and it builds. The only skill you need is the ability to clearly describe what you want — and we'll practice that in Hour 1.</div>
-        </div>
-
+        <div class="faq-item"><div class="faq-q">Do I need a Claude subscription before the workshop? <span class="faq-arrow">+</span></div><div class="faq-a">You don't need one before registering. But you will need the Claude Max plan (₹2,000/month) to implement everything live. We recommend signing up 1–2 days before.</div></div>
+        <div class="faq-item"><div class="faq-q">I've only done a few ad campaigns. Is this for me? <span class="faq-arrow">+</span></div><div class="faq-a">This is for coaches who have run at least one Meta ad campaign and have a working funnel. If you're completely new to ads, get your first campaign live first — the implementation will make much more sense with real context.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I'm still using an agency? Can I join and transition? <span class="faq-arrow">+</span></div><div class="faq-a">Absolutely — this is exactly who this workshop is built for. Many attendees join while still paying their agency, build their own system in parallel, and cancel the retainer within 30 days.</div></div>
+        <div class="faq-item"><div class="faq-q">Will the recording be available if I miss the live session? <span class="faq-arrow">+</span></div><div class="faq-a">The recording is available as a paid add-on (₹100 extra) at the time of registration. We strongly recommend attending live — the campaign launch is interactive and significantly more valuable in real time.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the 110% money-back guarantee exactly? <span class="faq-arrow">+</span></div><div class="faq-a">Attend the complete 3-hour workshop and don't get full clarity on running your own Meta ads using Claude — we refund your full registration amount plus ₹25 extra. No questions asked. Just WhatsApp us.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need any technical skills or coding knowledge? <span class="faq-arrow">+</span></div><div class="faq-a">None. Claude Code does the technical heavy lifting. You give it instructions in plain Hindi or English and it builds. The only skill needed is clearly describing what you want — and we practice that in Hour 1.</div></div>
       </div>
     </div>
   </section>
@@ -1294,17 +1471,15 @@
     <div class="container">
       <h2>Stop Paying the Agency.<br/><span class="gold">Start Owning the Game.</span></h2>
       <p class="sub">Join 1ManAgencyPlan — the 3-hour live workshop where you go from agency-dependent to fully independent. Friday, 19th June. Only 50 seats.</p>
-      <button class="btn-primary" onclick="openModal('99')">
-        Secure My ₹99 Seat Now →
-      </button>
-      <p style="margin-top:16px; font-size:13px; color:var(--text-muted)">⚡ Only 12 early bird seats remaining · Price goes to ₹299 when they're gone</p>
+      <button class="btn btn-pulse" onclick="openModal('99')">Secure My ₹99 Seat Now →</button>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted)">⚡ Only 12 early bird seats remaining · Price goes to ₹299 when they're gone</p>
     </div>
   </section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer id="footer">
     <div class="container">
-      <div class="brand">1Man<span style="color:var(--text-white)">AgencyPlan</span></div>
+      <div class="brand">1Man<span style="color:var(--white)">AgencyPlan</span></div>
       <div class="foot-links">
         <a href="mailto:highnitin@gmail.com">Contact</a>
         <a href="#">Privacy Policy</a>
@@ -1312,15 +1487,24 @@
         <a href="#">Refund Policy</a>
       </div>
       <p class="copy">© 2026 1ManAgencyPlan · Nitin Joshi · All Rights Reserved · 1managencyplan.com</p>
-      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;">This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of META PLATFORMS, Inc.</p>
+      <p style="font-size:11px;color:var(--muted);margin-top:8px">This site is not a part of the Facebook website or Facebook Inc. FACEBOOK is a trademark of META PLATFORMS, Inc.</p>
     </div>
   </footer>
 
-  <!-- ═══ STICKY MOBILE CTA ═══ -->
-  <div id="sticky-cta">
-    <div class="sticky-price">Early Bird: <strong>₹99</strong></div>
-    <button class="btn-primary" onclick="openModal('99')">Secure Seat →</button>
+  <!-- ═══ STICKY CTA BAR ═══ -->
+  <div id="sticky-bar">
+    <div class="sticky-left">
+      <span class="sticky-urgency">⚠️ Only 12 Early Bird Seats Left · Closes Soon</span>
+      <span class="sticky-price">Lock in your seat now: <strong>₹99</strong> <span style="font-size:12px;text-decoration:line-through;color:var(--muted)">₹999</span></span>
+    </div>
+    <div class="sticky-right">
+      <span class="sticky-guarantee">🛡️ 110% Money Back · No Risk</span>
+      <button class="sticky-btn" onclick="openModal('99')">ENROLL NOW ₹99 → Get Bonuses worth ₹24,997</button>
+    </div>
   </div>
+
+  <!-- ═══ TOAST CONTAINER ═══ -->
+  <div id="toast-container"></div>
 
   <!-- ═══ MODAL FORM ═══ -->
   <div id="modal-overlay" onclick="handleOverlayClick(event)">
@@ -1328,40 +1512,13 @@
       <button class="modal-close" onclick="closeModal()">×</button>
       <div class="modal-title">🚀 Secure Your Seat</div>
       <div class="modal-sub">Workshop: <strong>19th June, 12 PM – 3 PM IST</strong> · Live on Zoom</div>
-
       <form id="reg-form" onsubmit="handleSubmit(event)">
-
-        <div class="form-group">
-          <label class="form-label" for="f-name">Full Name <span class="req">*</span></label>
-          <input class="form-input" type="text" id="f-name" name="name" placeholder="Your full name" required />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="f-email">Email Address <span class="req">*</span></label>
-          <input class="form-input" type="email" id="f-email" name="email" placeholder="your@email.com" required />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="f-whatsapp">WhatsApp Number <span class="req">*</span></label>
-          <input class="form-input" type="tel" id="f-whatsapp" name="whatsapp" placeholder="+91 XXXXX XXXXX" required />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="f-niche">Your Coaching Niche <span class="req">*</span></label>
-          <input class="form-input" type="text" id="f-niche" name="niche" placeholder="e.g. Business coaching, Fitness, Mindset..." required />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="f-funnel">Your Funnel / Landing Page URL</label>
-          <input class="form-input" type="url" id="f-funnel" name="funnelLink" placeholder="https://yourpage.com" />
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="f-challenge">Biggest Challenge with Meta Ads Right Now <span class="req">*</span></label>
-          <textarea class="form-textarea" id="f-challenge" name="challenge" placeholder="e.g. High CPL, low show-up rate, dependent on agency for every change..." required></textarea>
-        </div>
-
-        <!-- Add-on bump -->
+        <div class="form-group"><label class="form-label" for="f-name">Full Name <span class="req">*</span></label><input class="form-input" type="text" id="f-name" name="name" placeholder="Your full name" required /></div>
+        <div class="form-group"><label class="form-label" for="f-email">Email Address <span class="req">*</span></label><input class="form-input" type="email" id="f-email" name="email" placeholder="your@email.com" required /></div>
+        <div class="form-group"><label class="form-label" for="f-whatsapp">WhatsApp Number <span class="req">*</span></label><input class="form-input" type="tel" id="f-whatsapp" name="whatsapp" placeholder="+91 XXXXX XXXXX" required /></div>
+        <div class="form-group"><label class="form-label" for="f-niche">Your Coaching Niche <span class="req">*</span></label><input class="form-input" type="text" id="f-niche" name="niche" placeholder="e.g. Business coaching, Fitness, Mindset..." required /></div>
+        <div class="form-group"><label class="form-label" for="f-funnel">Your Funnel / Landing Page URL</label><input class="form-input" type="url" id="f-funnel" name="funnelLink" placeholder="https://yourpage.com" /></div>
+        <div class="form-group"><label class="form-label" for="f-challenge">Biggest Challenge with Meta Ads Right Now <span class="req">*</span></label><textarea class="form-textarea" id="f-challenge" name="challenge" placeholder="e.g. High CPL, low show-up rate, dependent on agency..." required></textarea></div>
         <label class="form-addon" for="f-addon">
           <input type="checkbox" id="f-addon" name="wantsRecording" />
           <div class="form-addon-text">
@@ -1369,140 +1526,299 @@
             <div class="desc">Rewatch forever · Full prompt library · Future updates included</div>
           </div>
         </label>
-
         <input type="hidden" id="f-price" name="price" value="99" />
-        <input type="hidden" id="f-source" name="source" value="landing-page" />
-
-        <button class="form-submit" type="submit" id="submit-btn">
-          Complete Registration & Pay →
-        </button>
+        <button class="form-submit" type="submit" id="submit-btn">Complete Registration & Pay →</button>
         <p class="form-privacy">🔒 Your information is 100% secure. We never spam.</p>
+        <div class="form-security-badges">
+          <span class="sec-badge">🔒 SSL Encrypted</span>
+          <span class="sec-badge">💳 Powered by Razorpay</span>
+          <span class="sec-badge">🛡️ 110% Money Back</span>
+        </div>
       </form>
     </div>
   </div>
 
-
   <!-- ═══ SCRIPTS ═══ -->
   <script>
-    /* ─── COUNTDOWN TIMER ─── */
-    (function() {
-      // Workshop: Friday 19 June 2026, 12:00 PM IST (UTC+5:30)
-      const target = new Date('2026-06-19T06:30:00Z'); // 12:00 PM IST = 06:30 UTC
-
-      function tick() {
-        const now  = new Date();
-        const diff = target - now;
-
-        if (diff <= 0) {
-          document.getElementById('cd-days').textContent  = '00';
-          document.getElementById('cd-hours').textContent = '00';
-          document.getElementById('cd-mins').textContent  = '00';
-          document.getElementById('cd-secs').textContent  = '00';
-          return;
-        }
-
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000)  / 60000);
-        const s = Math.floor((diff % 60000)    / 1000);
-
-        const pad = n => String(n).padStart(2, '0');
-        document.getElementById('cd-days').textContent  = pad(d);
-        document.getElementById('cd-hours').textContent = pad(h);
-        document.getElementById('cd-mins').textContent  = pad(m);
-        document.getElementById('cd-secs').textContent  = pad(s);
+    /* ─── COUNTDOWN ─── */
+    (function(){
+      const target = new Date('2026-06-19T06:30:00Z');
+      function tick(){
+        const diff = target - new Date();
+        if(diff<=0){['days','hours','mins','secs'].forEach(id=>document.getElementById('cd-'+id).textContent='00');return}
+        const p=n=>String(n).padStart(2,'0');
+        document.getElementById('cd-days').textContent  = p(Math.floor(diff/86400000));
+        document.getElementById('cd-hours').textContent = p(Math.floor(diff%86400000/3600000));
+        document.getElementById('cd-mins').textContent  = p(Math.floor(diff%3600000/60000));
+        document.getElementById('cd-secs').textContent  = p(Math.floor(diff%60000/1000));
       }
-
-      tick();
-      setInterval(tick, 1000);
+      tick(); setInterval(tick,1000);
     })();
 
+    /* ─── PROGRESS BAR ANIMATE IN ─── */
+    window.addEventListener('load',()=>{
+      setTimeout(()=>document.getElementById('progress-fill').classList.add('animated'),300);
+    });
+
+    /* ─── VIEWER COUNT (subtle random fluctuation) ─── */
+    (function(){
+      const el = document.getElementById('viewer-num');
+      let base = 147;
+      setInterval(()=>{
+        const delta = Math.floor(Math.random()*5)-2;
+        base = Math.max(130, Math.min(180, base+delta));
+        el.textContent = base;
+      }, 4500);
+    })();
+
+    /* ─── STICKY BAR (show after hero scrolls away) ─── */
+    const stickyBar = document.getElementById('sticky-bar');
+    const heroEl    = document.getElementById('hero');
+    const observer  = new IntersectionObserver(entries=>{
+      stickyBar.classList.toggle('visible', !entries[0].isIntersecting);
+    },{threshold:0.1});
+    observer.observe(heroEl);
+
     /* ─── FAQ ACCORDION ─── */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const wasOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!wasOpen) item.classList.add('open');
+    document.querySelectorAll('.faq-q').forEach(q=>{
+      q.addEventListener('click',()=>{
+        const item=q.parentElement, was=item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+        if(!was) item.classList.add('open');
       });
     });
 
     /* ─── MODAL ─── */
-    function openModal(price) {
-      document.getElementById('f-price').value = price || '99';
+    function openModal(price){
+      document.getElementById('f-price').value = price||'99';
       document.getElementById('modal-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow='hidden';
+      if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{currency:'INR',value:parseFloat(price)});
     }
-    function closeModal() {
+    function closeModal(){
       document.getElementById('modal-overlay').classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.style.overflow='';
     }
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    function handleOverlayClick(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+    /* ─── TOAST NOTIFICATIONS ─── */
+    const toastData=[
+      {initials:'PK',name:'Priya K.',city:'Delhi',action:'just secured her seat 🎉'},
+      {initials:'RM',name:'Rohit M.',city:'Mumbai',action:'just registered ⚡'},
+      {initials:'AS',name:'Anjali S.',city:'Bangalore',action:'just secured her seat 🎉'},
+      {initials:'VR',name:'Vikas R.',city:'Pune',action:'just registered ⚡'},
+      {initials:'MK',name:'Meera K.',city:'Hyderabad',action:'just secured her seat 🎉'},
+      {initials:'SK',name:'Suresh K.',city:'Chennai',action:'just registered ⚡'},
+      {initials:'NP',name:'Neha P.',city:'Ahmedabad',action:'just secured her seat 🎉'},
+      {initials:'AJ',name:'Amit J.',city:'Jaipur',action:'just registered ⚡'},
+    ];
+    let toastIdx=0;
+    function showToast(){
+      const d=toastData[toastIdx%toastData.length]; toastIdx++;
+      const container=document.getElementById('toast-container');
+      const el=document.createElement('div');
+      el.className='toast';
+      el.innerHTML=`<div class="toast-avatar">${d.initials}</div><div class="toast-text"><div class="toast-name">${d.name} · ${d.city}</div><div class="toast-action">${d.action}</div></div>`;
+      container.appendChild(el);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
+      setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),400);},4000);
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    setTimeout(()=>{showToast();setInterval(showToast, 9000);}, 5000);
+
+    /* ─── FLYWHEEL NODES ─── */
+    (function() {
+      var stages = [
+        { num:'01', label:'Research' },
+        { num:'02', label:'Audit' },
+        { num:'03', label:'Gaps' },
+        { num:'04', label:'Opportunities' },
+        { num:'05', label:'Execution' },
+        { num:'06', label:'Evaluation' },
+        { num:'07', label:'Reporting' },
+      ];
+      var R=240, cx=300, cy=300;
+      var g = document.getElementById('loop-nodes');
+      if(!g) return;
+      var ns = 'http://www.w3.org/2000/svg';
+      stages.forEach(function(s,i) {
+        var angle = (i * 360/stages.length - 90) * Math.PI/180;
+        var x = cx + R * Math.cos(angle);
+        var y = cy + R * Math.sin(angle);
+        var lx = cx + (R+60) * Math.cos(angle);
+        var ly = cy + (R+60) * Math.sin(angle);
+        var grp = document.createElementNS(ns,'g');
+        grp.setAttribute('class','loop-node-g');
+
+        var circle = document.createElementNS(ns,'circle');
+        circle.setAttribute('cx',x); circle.setAttribute('cy',y);
+        circle.setAttribute('r','26'); circle.setAttribute('class','loop-node-bg');
+
+        var num = document.createElementNS(ns,'text');
+        num.setAttribute('x',x); num.setAttribute('y',y+4);
+        num.setAttribute('class','loop-node-num');
+        num.setAttribute('text-anchor','middle');
+        num.textContent = s.num;
+
+        var label = document.createElementNS(ns,'text');
+        label.setAttribute('x',lx); label.setAttribute('y',ly+4);
+        label.setAttribute('class','loop-node-label');
+        label.setAttribute('text-anchor','middle');
+        label.textContent = s.label;
+
+        grp.appendChild(circle); grp.appendChild(num); grp.appendChild(label);
+        g.appendChild(grp);
+      });
+    })();
+
+    /* ─── TERMINAL CODE ANIMATION ─── */
+    (function() {
+      var lines = document.querySelectorAll('.t-line');
+      if(!lines.length) return;
+      var observer = new IntersectionObserver(function(entries) {
+        if(entries[0].isIntersecting) {
+          lines.forEach(function(l) { l.classList.remove('show'); });
+          lines.forEach(function(l, i) {
+            setTimeout(function() { l.classList.add('show'); }, i * 320);
+          });
+        }
+      }, { threshold: 0.3 });
+      observer.observe(document.querySelector('.terminal-wrap'));
+    })();
+
+    /* ─── HERO VSL ─── */
+    function playHeroVSL() {
+      var src = 'REPLACE_WITH_HERO_VSL_VIDEO_URL';
+      var poster = document.getElementById('hero-vsl-poster');
+      var vid    = document.getElementById('hero-vsl-vid');
+      poster.style.display = 'none';
+      vid.style.display = 'block';
+      if(src.includes('.m3u8')) {
+        if(Hls.isSupported()){ var h=new Hls(); h.loadSource(src); h.attachMedia(vid); h.on(Hls.Events.MANIFEST_PARSED,function(){vid.play();}); }
+        else if(vid.canPlayType('application/vnd.apple.mpegurl')){ vid.src=src; vid.play(); }
+      } else { vid.src=src; vid.play(); }
+    }
+
+    /* ─── RESULTS VIDEO ─── */
+    function playResultsVideo() {
+      // Replace PLACEHOLDER_RESULTS_VIDEO with your actual HLS/video URL
+      var src = 'REPLACE_WITH_RESULTS_VIDEO_URL';
+      var poster = document.getElementById('results-vid-poster');
+      var vid = document.getElementById('results-vid');
+      poster.style.display = 'none';
+      vid.style.display = 'block';
+      if(src.includes('.m3u8')) {
+        if(Hls.isSupported()) {
+          var hls = new Hls();
+          hls.loadSource(src);
+          hls.attachMedia(vid);
+          hls.on(Hls.Events.MANIFEST_PARSED, function() { vid.play(); });
+        } else if(vid.canPlayType('application/vnd.apple.mpegurl')) {
+          vid.src = src; vid.play();
+        }
+      } else {
+        vid.src = src; vid.play();
+      }
+    }
+
+    /* ─── HLS VIDEO PLAYER ─── */
+    function playHLS(videoId, src, posterId) {
+      var video   = document.getElementById(videoId);
+      var poster  = document.getElementById(posterId);
+
+      // Hide poster
+      poster.classList.add('hidden');
+
+      if (Hls.isSupported()) {
+        var hls = new Hls({ startLevel: -1 });
+        hls.loadSource(src);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
+      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        // Safari native HLS
+        video.src = src;
+        video.play();
+      }
+    }
+
+    /* ─── SEAT BAR ANIMATION — fires every time bar scrolls into view ─── */
+    (function() {
+      var TOTAL_SEATS   = 50;
+      var FILLED_SEATS  = 38; // 38 taken → only 12 left → urgency!
+      var SPEED_MS      = 130; // ms per square — slow dramatic fill
+
+      function animateBar(bar) {
+        var boxes = bar.querySelectorAll('.pb-box');
+        // Reset all to empty first
+        boxes.forEach(function(b){ b.classList.remove('done'); });
+        var count = 0;
+        var interval = setInterval(function() {
+          if (count < FILLED_SEATS && count < boxes.length) {
+            boxes[count].classList.add('done');
+            count++;
+          } else {
+            clearInterval(interval);
+          }
+        }, SPEED_MS);
+      }
+
+      // Use IntersectionObserver so animation fires EVERY time bar enters view
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) { animateBar(entry.target); }
+        });
+      }, { threshold: 0.5 });
+
+      // Observe the seat bar
+      document.querySelectorAll('.seat-bar').forEach(function(bar) {
+        observer.observe(bar);
+      });
+    })();
+
+    /* ─── IMAGE SLIDER ─── */
+    let slideIndex = 0;
+    const totalSlides = 3;
+    let sliderTimer;
+
+    function slideTo(n){
+      slideIndex = (n + totalSlides) % totalSlides;
+      const track = document.getElementById('slider-track');
+      if(track) track.style.transform = `translateX(-${slideIndex * 100}%)`;
+      document.querySelectorAll('.slider-dot').forEach((d,i) =>
+        d.classList.toggle('active', i === slideIndex)
+      );
+    }
+
+    function slideMove(dir){ slideTo(slideIndex + dir); resetSliderTimer(); }
+
+    function resetSliderTimer(){
+      clearInterval(sliderTimer);
+      sliderTimer = setInterval(()=> slideTo(slideIndex + 1), 4000);
+    }
+
+    // Auto-play slider
+    sliderTimer = setInterval(()=> slideTo(slideIndex + 1), 4000);
 
     /* ─── FORM SUBMISSION ─── */
-    const APPS_SCRIPT_URL = 'REPLACE_WITH_YOUR_APPS_SCRIPT_URL';
-    const RAZORPAY_LINK_99  = 'REPLACE_WITH_RAZORPAY_LINK_99';
-    const RAZORPAY_LINK_299 = 'REPLACE_WITH_RAZORPAY_LINK_299';
-    const RAZORPAY_LINK_499 = 'REPLACE_WITH_RAZORPAY_LINK_499';
-    const RAZORPAY_LINK_RECORDING_ADDON = 'REPLACE_WITH_RAZORPAY_LINK_WITH_RECORDING';
-
-    function handleSubmit(e) {
+    const APPS_SCRIPT_URL='REPLACE_WITH_YOUR_APPS_SCRIPT_URL';
+    const RAZORPAY_LINKS={
+      '99':'REPLACE_WITH_RAZORPAY_LINK_99',
+      '299':'REPLACE_WITH_RAZORPAY_LINK_299',
+      '499':'REPLACE_WITH_RAZORPAY_LINK_499',
+      'recording':'REPLACE_WITH_RAZORPAY_LINK_WITH_RECORDING',
+    };
+    function handleSubmit(e){
       e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      btn.disabled = true;
-      btn.textContent = 'Processing…';
-
-      const form   = document.getElementById('reg-form');
-      const data   = new FormData(form);
-      const price  = data.get('price') || '99';
-      const wantsRecording = data.get('wantsRecording') === 'on';
-
-      const payload = {
-        name:           data.get('name'),
-        email:          data.get('email'),
-        whatsapp:       data.get('whatsapp'),
-        niche:          data.get('niche'),
-        funnelLink:     data.get('funnelLink') || '',
-        challenge:      data.get('challenge'),
-        price:          price,
-        wantsRecording: wantsRecording,
-        source:         data.get('source') || 'landing-page',
-        timestamp:      new Date().toISOString(),
-        paymentStatus:  'Payment Initialized',
-      };
-
-      // Fire Meta Pixel lead event
-      if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', { currency: 'INR', value: parseFloat(price) });
-      }
-
-      // Send to Google Apps Script (non-blocking — redirect even if this fails)
-      fetch(APPS_SCRIPT_URL, {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload),
-        mode:    'no-cors', // Apps Script CORS workaround
-      }).catch(() => {}); // Silent fail — redirect regardless
-
-      // Determine payment link
-      let paymentLink;
-      if (wantsRecording) {
-        paymentLink = RAZORPAY_LINK_RECORDING_ADDON;
-      } else {
-        if      (price === '99')  paymentLink = RAZORPAY_LINK_99;
-        else if (price === '299') paymentLink = RAZORPAY_LINK_299;
-        else                      paymentLink = RAZORPAY_LINK_499;
-      }
-
-      // Short delay so Apps Script request can fire, then redirect
-      setTimeout(() => {
-        window.location.href = paymentLink;
-      }, 600);
+      const btn=document.getElementById('submit-btn');
+      btn.disabled=true; btn.textContent='Processing…';
+      const fd=new FormData(document.getElementById('reg-form'));
+      const price=fd.get('price')||'99';
+      const wantsRecording=fd.get('wantsRecording')==='on';
+      const payload={name:fd.get('name'),email:fd.get('email'),whatsapp:fd.get('whatsapp'),niche:fd.get('niche'),funnelLink:fd.get('funnelLink')||'',challenge:fd.get('challenge'),price,wantsRecording,timestamp:new Date().toISOString(),paymentStatus:'Payment Initialized'};
+      if(typeof fbq!=='undefined') fbq('track','Lead',{currency:'INR',value:parseFloat(price)});
+      fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors'}).catch(()=>{});
+      setTimeout(()=>{window.location.href=wantsRecording?RAZORPAY_LINKS.recording:RAZORPAY_LINKS[price]||RAZORPAY_LINKS['99'];},600);
     }
   </script>
-
 </body>
 </html>

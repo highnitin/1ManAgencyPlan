@@ -528,6 +528,11 @@
     .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;animation:none}
     .form-privacy{font-size:11px;color:var(--muted);text-align:center;margin-top:12px}
     .form-security-badges{display:flex;justify-content:center;gap:16px;margin-top:10px;flex-wrap:wrap}
+    .phone-wrap{display:flex;gap:8px}
+    .phone-country{background:var(--alt);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:13px 10px;font-size:14px;color:var(--white);font-family:'Inter',sans-serif;flex-shrink:0;cursor:pointer;outline:none;transition:border-color .2s}
+    .phone-country:focus{border-color:var(--gold)}
+    .phone-digits{flex:1;min-width:0}
+    .field-error{color:var(--red);font-size:12px;margin-top:5px;display:none}
     .sec-badge{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:4px}
 
     /* ═══════════════ RESPONSIVE ═══════════════ */
@@ -1515,9 +1520,23 @@
       <form id="reg-form" onsubmit="handleSubmit(event)">
         <div class="form-group"><label class="form-label" for="f-name">Full Name <span class="req">*</span></label><input class="form-input" type="text" id="f-name" name="name" placeholder="Your full name" required /></div>
         <div class="form-group"><label class="form-label" for="f-email">Email Address <span class="req">*</span></label><input class="form-input" type="email" id="f-email" name="email" placeholder="your@email.com" required /></div>
-        <div class="form-group"><label class="form-label" for="f-whatsapp">WhatsApp Number <span class="req">*</span></label><input class="form-input" type="tel" id="f-whatsapp" name="whatsapp" placeholder="+91 XXXXX XXXXX" required /></div>
+        <div class="form-group">
+          <label class="form-label" for="f-phone-digits">WhatsApp Number <span class="req">*</span></label>
+          <div class="phone-wrap">
+            <select id="f-country-code" class="phone-country">
+              <option value="91">🇮🇳 +91</option>
+              <option value="1">🇺🇸 +1</option>
+              <option value="44">🇬🇧 +44</option>
+              <option value="971">🇦🇪 +971</option>
+              <option value="65">🇸🇬 +65</option>
+              <option value="61">🇦🇺 +61</option>
+            </select>
+            <input class="form-input phone-digits" type="tel" id="f-phone-digits" placeholder="10-digit number" maxlength="10" inputmode="numeric" />
+          </div>
+          <div class="field-error" id="phone-error">Please enter a valid 10-digit number</div>
+        </div>
         <div class="form-group"><label class="form-label" for="f-niche">Your Coaching Niche <span class="req">*</span></label><input class="form-input" type="text" id="f-niche" name="niche" placeholder="e.g. Business coaching, Fitness, Mindset..." required /></div>
-        <div class="form-group"><label class="form-label" for="f-funnel">Your Funnel / Landing Page URL</label><input class="form-input" type="url" id="f-funnel" name="funnelLink" placeholder="https://yourpage.com" /></div>
+        <div class="form-group"><label class="form-label" for="f-funnel">Your Funnel / Landing Page URL</label><input class="form-input" type="text" id="f-funnel" name="funnelLink" placeholder="yourpage.com or https://yourpage.com" /></div>
         <div class="form-group"><label class="form-label" for="f-challenge">Biggest Challenge with Meta Ads Right Now <span class="req">*</span></label><textarea class="form-textarea" id="f-challenge" name="challenge" placeholder="e.g. High CPL, low show-up rate, dependent on agency..." required></textarea></div>
         <label class="form-addon" for="f-addon">
           <input type="checkbox" id="f-addon" name="wantsRecording" />
@@ -1591,10 +1610,17 @@
 
     /* ─── MODAL ─── */
     function openModal(price){
-      document.getElementById('f-price').value = price||'399';
+      const p = price || '399';
+      document.getElementById('f-price').value = p;
+      // Reset checkbox + button text fresh each open
+      const cb = document.getElementById('f-addon');
+      cb.checked = false;
+      document.getElementById('submit-btn').textContent = 'Pay ₹' + p + ' & Secure My Seat →';
+      // Reset errors
+      document.getElementById('phone-error').style.display = 'none';
       document.getElementById('modal-overlay').classList.add('active');
       document.body.style.overflow='hidden';
-      if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{currency:'INR',value:parseFloat(price)});
+      if(typeof fbq!=='undefined') fbq('track','InitiateCheckout',{currency:'INR',value:parseFloat(p)});
     }
     function closeModal(){
       document.getElementById('modal-overlay').classList.remove('active');
@@ -1811,22 +1837,76 @@
 
     /* ─── CHECKBOX → UPDATE CTA TEXT ─── */
     document.getElementById('f-addon').addEventListener('change', function(){
-      const btn = document.getElementById('submit-btn');
-      btn.textContent = this.checked ? 'Pay ₹499 & Secure My Seat →' : 'Pay ₹399 & Secure My Seat →';
+      const btn  = document.getElementById('submit-btn');
+      const base = parseInt(document.getElementById('f-price').value) || 399;
+      btn.textContent = this.checked
+        ? 'Pay ₹' + (base + 100) + ' & Secure My Seat →'
+        : 'Pay ₹' + base + ' & Secure My Seat →';
     });
 
     function handleSubmit(e){
       e.preventDefault();
-      const btn=document.getElementById('submit-btn');
-      btn.disabled=true; btn.textContent='Processing…';
-      const fd=new FormData(document.getElementById('reg-form'));
-      const price=fd.get('price')||'399';
-      const wantsRecording=fd.get('wantsRecording')==='on';
-      const payload={name:fd.get('name'),email:fd.get('email'),whatsapp:fd.get('whatsapp'),niche:fd.get('niche'),funnelLink:fd.get('funnelLink')||'',challenge:fd.get('challenge'),price,wantsRecording,timestamp:new Date().toISOString(),paymentStatus:'Payment Initialized'};
-      if(typeof fbq!=='undefined') fbq('track','Lead',{currency:'INR',value:parseFloat(price)});
+      const btn = document.getElementById('submit-btn');
+
+      /* ── Phone validation ── */
+      const phoneDigits = document.getElementById('f-phone-digits').value.replace(/\D/g,'');
+      const phoneErr    = document.getElementById('phone-error');
+      if(!/^\d{10}$/.test(phoneDigits)){
+        phoneErr.style.display = 'block';
+        document.getElementById('f-phone-digits').focus();
+        return;
+      }
+      phoneErr.style.display = 'none';
+
+      /* ── Email validation ── */
+      const emailVal = document.getElementById('f-email').value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)){
+        document.getElementById('f-email').focus();
+        return;
+      }
+
+      /* ── Funnel URL — normalize, don't block ── */
+      const funnelInput = document.getElementById('f-funnel');
+      let funnelUrl = funnelInput.value.trim();
+      if(funnelUrl && !/^https?:\/\//i.test(funnelUrl)) funnelUrl = 'https://' + funnelUrl;
+
+      /* ── Disable button ── */
+      btn.disabled = true;
+      btn.textContent = 'Processing…';
+
+      const fd             = new FormData(document.getElementById('reg-form'));
+      const price          = fd.get('price') || '399';
+      const wantsRecording = document.getElementById('f-addon').checked;
+      const countryCode    = document.getElementById('f-country-code').value;
+      const fullPhone      = countryCode + phoneDigits;
+
+      const payload = {
+        name: fd.get('name'),
+        email: emailVal,
+        whatsapp: fullPhone,
+        niche: fd.get('niche'),
+        funnelLink: funnelUrl,
+        challenge: fd.get('challenge'),
+        price,
+        wantsRecording,
+        timestamp: new Date().toISOString(),
+        paymentStatus: 'Payment Initialized'
+      };
+
+      if(typeof fbq !== 'undefined') fbq('track','Lead',{currency:'INR',value:parseFloat(price)});
       fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'no-cors'}).catch(()=>{});
-      const link = wantsRecording ? RAZORPAY_LINKS.recording : (RAZORPAY_LINKS[price]||RAZORPAY_LINKS['399']);
-      setTimeout(()=>{ window.location.href = link; },600);
+
+      /* ── Build Razorpay URL with pre-fill params ── */
+      const baseLink = wantsRecording ? RAZORPAY_LINKS.recording : (RAZORPAY_LINKS[price] || RAZORPAY_LINKS['399']);
+      const params   = new URLSearchParams({
+        name:                fd.get('name'),
+        email:               emailVal,
+        phone:               phoneDigits,
+        business_challenges: fd.get('challenge') || ''
+      });
+      const link = baseLink + '?' + params.toString();
+
+      setTimeout(()=>{ window.location.href = link; }, 600);
     }
   </script>
 </body>

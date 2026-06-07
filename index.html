@@ -1955,7 +1955,13 @@
       });
       const link = baseLink + '?' + params.toString();
 
-      setTimeout(()=>{ window.location.href = link; }, 600);
+      setTimeout(()=>{
+        window.open(link, '_blank');
+        btn.disabled = false;
+        btn.textContent = wantsRecording
+          ? '🔒 Pay ₹' + (parseInt(price)+100) + ' & Get Recording →'
+          : '🔒 Pay ₹' + price + ' & Secure My Seat →';
+      }, 600);
     }
   </script>
 </body>

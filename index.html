@@ -519,10 +519,36 @@
     .form-input:focus,.form-textarea:focus{border-color:var(--gold)}
     .form-input::placeholder,.form-textarea::placeholder{color:var(--muted)}
     .form-textarea{resize:vertical;min-height:80px}
-    .form-addon{background:rgba(245,166,35,.06);border:1px dashed rgba(245,166,35,.4);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;margin-bottom:22px;cursor:pointer}
-    .form-addon input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;accent-color:var(--gold);cursor:pointer;margin-top:2px}
-    .form-addon-text .title{font-size:14px;font-weight:700;margin-bottom:2px}
-    .form-addon-text .desc{font-size:12px;color:var(--muted)}
+    /* ── Recording add-on card ── */
+    .form-addon{background:#FFFBEB;border:2px dashed #F59E0B;border-radius:14px;padding:16px 18px;display:flex;align-items:flex-start;gap:14px;margin-bottom:22px;cursor:pointer;transition:border-color .2s,background .2s,border-style .1s}
+    .form-addon input[type="checkbox"]{display:none}
+    .form-addon.addon-checked{background:#F0FFF4;border-color:#22C55E;border-style:solid}
+    .addon-check-box{width:34px;height:34px;flex-shrink:0;border:2px solid #F59E0B;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:2px}
+    .form-addon.addon-checked .addon-check-box{background:#22C55E;border-color:#22C55E}
+    .addon-check-tick{color:#fff;font-size:20px;font-weight:900;opacity:0;transition:opacity .15s;line-height:1}
+    .form-addon.addon-checked .addon-check-tick{opacity:1}
+    .addon-eyebrow{font-size:11px;font-weight:800;letter-spacing:1px;color:#D97706;text-transform:uppercase;margin-bottom:5px}
+    .addon-title{font-size:15px;font-weight:800;color:#111;margin-bottom:7px}
+    .addon-desc{font-size:13px;color:#555;line-height:1.55;margin-bottom:10px}
+    .addon-price-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .addon-price-main{font-size:15px;font-weight:800;color:#EF4444}
+    .addon-price-orig{font-size:13px;color:#aaa;text-decoration:line-through}
+    .addon-price-badge{background:#22C55E;color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:50px;letter-spacing:.5px}
+    /* ── White modal overrides ── */
+    #modal{background:#fff;border-color:rgba(0,0,0,.1)}
+    #modal .modal-close{color:#aaa}
+    #modal .modal-close:hover{color:#111}
+    #modal .modal-title{color:#111}
+    #modal .modal-sub{color:#666}
+    #modal .modal-sub strong{color:#C8851A}
+    #modal .form-label{color:#333}
+    #modal .form-label .req{color:#C8851A}
+    #modal .form-input,#modal .form-textarea{background:#F5F5F5;border-color:rgba(0,0,0,.12);color:#111}
+    #modal .form-input:focus,#modal .form-textarea:focus{border-color:#F59E0B}
+    #modal .form-input::placeholder,#modal .form-textarea::placeholder{color:#bbb}
+    #modal .phone-country{background:#F5F5F5;border-color:rgba(0,0,0,.12);color:#111}
+    #modal .form-privacy{color:#999}
+    #modal .sec-badge{color:#666}
     .form-submit{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:17px;font-weight:800;padding:16px;border-radius:50px;border:none;cursor:pointer;transition:all .2s;animation:btnPulse 2.2s infinite}
     .form-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,166,35,.45);animation:none}
     .form-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;animation:none}
@@ -1538,11 +1564,18 @@
         <div class="form-group"><label class="form-label" for="f-niche">Your Coaching Niche <span class="req">*</span></label><input class="form-input" type="text" id="f-niche" name="niche" placeholder="e.g. Business coaching, Fitness, Mindset..." required /></div>
         <div class="form-group"><label class="form-label" for="f-funnel">Your Funnel / Landing Page URL</label><input class="form-input" type="text" id="f-funnel" name="funnelLink" placeholder="yourpage.com or https://yourpage.com" /></div>
         <div class="form-group"><label class="form-label" for="f-challenge">Biggest Challenge with Meta Ads Right Now <span class="req">*</span></label><textarea class="form-textarea" id="f-challenge" name="challenge" placeholder="e.g. High CPL, low show-up rate, dependent on agency..." required></textarea></div>
-        <label class="form-addon" for="f-addon">
+        <label class="form-addon" for="f-addon" id="addon-label">
           <input type="checkbox" id="f-addon" name="wantsRecording" />
-          <div class="form-addon-text">
-            <div class="title">📹 Add Lifetime Recording + 50-Prompt Claude Cheat Sheet — +₹100</div>
-            <div class="desc">Rewatch forever · Full prompt library · Future updates included</div>
+          <div class="addon-check-box"><span class="addon-check-tick">✓</span></div>
+          <div>
+            <div class="addon-eyebrow">⚡ ADD-ON — CHECK THIS BOX!</div>
+            <div class="addon-title">🎬 Get the Full Workshop Recording</div>
+            <div class="addon-desc">Can't attend live? Miss anything? Get lifetime access to the complete recording — rewatch anytime, forever.</div>
+            <div class="addon-price-row">
+              <span class="addon-price-main">Only ₹100 extra</span>
+              <span class="addon-price-orig">₹299</span>
+              <span class="addon-price-badge">67% OFF</span>
+            </div>
           </div>
         </label>
         <input type="hidden" id="f-price" name="price" value="399" />
@@ -1615,6 +1648,7 @@
       // Reset checkbox + button text fresh each open
       const cb = document.getElementById('f-addon');
       cb.checked = false;
+      document.getElementById('addon-label').classList.remove('addon-checked');
       document.getElementById('submit-btn').textContent = '🔒 Pay ₹' + p + ' & Secure My Seat →';
       // Reset errors
       document.getElementById('phone-error').style.display = 'none';
@@ -1835,10 +1869,12 @@
       'recording':'https://pages.razorpay.com/1map-claude-vip',
     };
 
-    /* ─── CHECKBOX → UPDATE CTA TEXT ─── */
+    /* ─── CHECKBOX → UPDATE CTA TEXT + CARD STATE ─── */
     document.getElementById('f-addon').addEventListener('change', function(){
-      const btn  = document.getElementById('submit-btn');
-      const base = parseInt(document.getElementById('f-price').value) || 399;
+      const btn   = document.getElementById('submit-btn');
+      const label = document.getElementById('addon-label');
+      const base  = parseInt(document.getElementById('f-price').value) || 399;
+      label.classList.toggle('addon-checked', this.checked);
       btn.textContent = this.checked
         ? '🔒 Pay ₹' + (base + 100) + ' & Get Recording →'
         : '🔒 Pay ₹' + base + ' & Secure My Seat →';

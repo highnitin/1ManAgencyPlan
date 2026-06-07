@@ -1840,8 +1840,21 @@
       const btn  = document.getElementById('submit-btn');
       const base = parseInt(document.getElementById('f-price').value) || 399;
       btn.textContent = this.checked
-        ? 'Pay ₹' + (base + 100) + ' & Secure My Seat →'
+        ? '🔒 Pay ₹' + (base + 100) + ' & Secure My Seat →'
         : 'Pay ₹' + base + ' & Secure My Seat →';
+    });
+
+    /* ─── RE-ENABLE BUTTON ON BACK NAVIGATION ─── */
+    window.addEventListener('pageshow', function(e){
+      const btn = document.getElementById('submit-btn');
+      if(btn.disabled){
+        btn.disabled = false;
+        const base = parseInt(document.getElementById('f-price').value) || 399;
+        const checked = document.getElementById('f-addon').checked;
+        btn.textContent = checked
+          ? '🔒 Pay ₹' + (base + 100) + ' & Secure My Seat →'
+          : 'Pay ₹' + base + ' & Secure My Seat →';
+      }
     });
 
     function handleSubmit(e){

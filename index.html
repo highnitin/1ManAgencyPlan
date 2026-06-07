@@ -1546,7 +1546,7 @@
           </div>
         </label>
         <input type="hidden" id="f-price" name="price" value="399" />
-        <button class="form-submit" type="submit" id="submit-btn">Pay ₹399 & Secure My Seat →</button>
+        <button class="form-submit" type="submit" id="submit-btn">🔒 Pay ₹399 & Secure My Seat →</button>
         <p class="form-privacy">🔒 Your information is 100% secure. We never spam.</p>
         <div class="form-security-badges">
           <span class="sec-badge">🔒 SSL Encrypted</span>
@@ -1615,7 +1615,7 @@
       // Reset checkbox + button text fresh each open
       const cb = document.getElementById('f-addon');
       cb.checked = false;
-      document.getElementById('submit-btn').textContent = 'Pay ₹' + p + ' & Secure My Seat →';
+      document.getElementById('submit-btn').textContent = '🔒 Pay ₹' + p + ' & Secure My Seat →';
       // Reset errors
       document.getElementById('phone-error').style.display = 'none';
       document.getElementById('modal-overlay').classList.add('active');
@@ -1840,8 +1840,8 @@
       const btn  = document.getElementById('submit-btn');
       const base = parseInt(document.getElementById('f-price').value) || 399;
       btn.textContent = this.checked
-        ? '🔒 Pay ₹' + (base + 100) + ' & Secure My Seat →'
-        : 'Pay ₹' + base + ' & Secure My Seat →';
+        ? '🔒 Pay ₹' + (base + 100) + ' & Get Recording →'
+        : '🔒 Pay ₹' + base + ' & Secure My Seat →';
     });
 
     /* ─── RE-ENABLE BUTTON ON BACK NAVIGATION ─── */
@@ -1852,8 +1852,8 @@
         const base = parseInt(document.getElementById('f-price').value) || 399;
         const checked = document.getElementById('f-addon').checked;
         btn.textContent = checked
-          ? '🔒 Pay ₹' + (base + 100) + ' & Secure My Seat →'
-          : 'Pay ₹' + base + ' & Secure My Seat →';
+          ? '🔒 Pay ₹' + (base + 100) + ' & Get Recording →'
+          : '🔒 Pay ₹' + base + ' & Secure My Seat →';
       }
     });
 

@@ -95,7 +95,7 @@
     .viewer-dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1s infinite}
 
     /* Live activity feed */
-    .activity-feed{position:relative;height:38px;overflow:hidden;width:100%;max-width:480px}
+    .activity-feed{position:relative;height:62px;overflow:hidden;width:100%;max-width:480px}
     .activity-item{position:absolute;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--light);background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);border-radius:50px;padding:8px 20px;opacity:0;animation:feedCycle 28s linear infinite}
     .activity-item:nth-child(1){animation-delay:0s}
     .activity-item:nth-child(2){animation-delay:4s}
@@ -501,6 +501,8 @@
     .toast-text{flex:1}
     .toast-name{font-weight:700;color:var(--white);margin-bottom:2px}
     .toast-action{font-size:11px;color:var(--muted)}
+    .toast-close{background:none;border:none;color:var(--muted);font-size:16px;line-height:1;cursor:pointer;padding:0 0 0 8px;flex-shrink:0;opacity:.6;transition:opacity .2s}
+    .toast-close:hover{opacity:1}
     @media(max-width:640px){#toast-container{bottom:100px;left:10px}}
 
     /* ═══════════════ MODAL ═══════════════ */
@@ -646,16 +648,7 @@
       <div class="seat-blocks-wrap" style="margin:20px auto 0">
         <div class="seat-label">🪑 SEATS FILLING UP — 38 of 50 taken</div>
         <div class="seat-bar">
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
         </div>
         <p class="seat-warning">⚠️ Hurry! Seats For This Workshop Are Low</p>
       </div>
@@ -814,16 +807,7 @@
       <div class="seats-wrap">
         <p class="seats-text"><strong>38 of 50</strong> early bird seats already taken</p>
         <div class="seat-bar" style="justify-content:center;margin:14px auto 10px">
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
+          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
         </div>
         <p class="seats-count">⚠️ Only 12 Early Bird Seats Remaining at ₹399 — Price Increases to ₹999 When Gone</p>
       </div>
@@ -1681,8 +1665,9 @@
       const container=document.getElementById('toast-container');
       const el=document.createElement('div');
       el.className='toast';
-      el.innerHTML=`<div class="toast-avatar">${d.initials}</div><div class="toast-text"><div class="toast-name">${d.name} · ${d.city}</div><div class="toast-action">${d.action}</div></div>`;
+      el.innerHTML=`<div class="toast-avatar">${d.initials}</div><div class="toast-text"><div class="toast-name">${d.name} · ${d.city}</div><div class="toast-action">${d.action}</div></div><button class="toast-close" aria-label="Close">✕</button>`;
       container.appendChild(el);
+      el.querySelector('.toast-close').addEventListener('click',()=>{el.classList.remove('show');setTimeout(()=>el.remove(),400);});
       requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
       setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),400);},4000);
     }
